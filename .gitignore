@@ -21,3 +21,18 @@
 .byebug_history
 
 .idea
+Будет удалено .rspec
+Будет удалено app/assets/javascripts/staticpages.coffee
+Будет удалено app/assets/stylesheets/custom.scss
+Будет удалено app/assets/stylesheets/staticpages.scss
+Будет удалено app/controllers/staticpages_controller.rb
+Будет удалено app/helpers/staticpages_helper.rb
+Будет удалено app/models/user.rb
+Будет удалено app/views/layouts/_footer.html.slim
+Будет удалено app/views/layouts/_header.html.slim
+Будет удалено app/views/staticpages/
+Будет удалено app/views/users/
+Будет удалено config/locales/devise.ru.yml
+Будет удалено db/migrate/
+Будет удалено db/schema.rb
+Будет удалено spec/

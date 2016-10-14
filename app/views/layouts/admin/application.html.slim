@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    title Teacher Site
+    = csrf_meta_tags
+    = stylesheet_link_tag    'admin/application', media: 'all'
+    = javascript_include_tag 'admin/application'
+  body
+    = render 'layouts/admin/header'
+    .container
+      = render 'layouts/admin/error_message'
+      = yield
+    = render 'layouts/admin/footer'
+

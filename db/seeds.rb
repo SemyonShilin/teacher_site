@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ActiveRecord::Base.transaction do
+  AdminRole.destroy_all
+
+  %w(admin moderator).each do |name|
+    AdminRole.create(name: name)
+  end
+
+  puts " (#{ AdminRole.count })"
+end
+
+ActiveRecord::Base.transaction do
+  AdminUser.destroy_all
+
+  AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin_roles: [AdminRole.find_by_name('admin')])
+
+  puts " (#{ AdminUser.count })"
+end

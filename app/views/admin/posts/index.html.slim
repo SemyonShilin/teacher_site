@@ -1,0 +1,10 @@
+- @posts.each do |post|
+  .row.blog-main
+    .col-md-1
+      = post.id
+    .col-md-2
+      = l(post.updated_at, format: '%d %B %Y, %H:%M')
+    .col-md-4
+      = post.title
+    .col-md-5
+      = link_to 'show', [:admin, post], class: 'btn btn-layout'

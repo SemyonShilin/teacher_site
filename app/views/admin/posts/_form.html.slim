@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @post], :multipart => true do |f|
+  = f.input :title
+  /= f.text_area :content, as: :ckeditor
+  = f.cktext_area :content, as: :ckeditor, ckeditor: { toolbar: 'MyToolbar' }
+  = f.file_field :file, required: true
+  = f.submit
