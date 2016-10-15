@@ -3,4 +3,4 @@
     h2.blog-title = @post.title
     p.blog-post-meta = @post.created_at
     div = @post.content.html_safe
-
+    div = link_to 'Download', @post.file.url

@@ -1,6 +1,6 @@
 - @posts.each do |post|
   .blog-post
-    h2.blog-post-title = post.title
+    h2.blog-post-title = link_to post.title, [post]
     p.blog-post-meta = l(post.updated_at, format: '%d %B %Y, %H:%M')
     div
       = post.content.html_safe

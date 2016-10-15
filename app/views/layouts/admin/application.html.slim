@@ -12,5 +12,8 @@ html
       .row
         = render 'layouts/admin/error_message'
         = yield
+        .col-sm-3.col-sm-offset-1.blog-sidebar
+          .sidebar-module
+            = render 'layouts/admin/sidebar'
     = render 'layouts/admin/footer'
 
