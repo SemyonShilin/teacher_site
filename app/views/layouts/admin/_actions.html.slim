@@ -1,0 +1,6 @@
+- if action_name == 'show'
+  ol.list-unstyled
+    li
+      = link_to 'Delete', [:admin, @post], class: 'btn btn-layout'
+    li
+      = link_to 'Edit', [:edit, :admin, @post], class: 'btn btn-layout'

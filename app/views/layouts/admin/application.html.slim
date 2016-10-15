@@ -9,7 +9,8 @@ html
   body
     = render 'layouts/admin/header'
     .container
-      = render 'layouts/admin/error_message'
-      = yield
+      .row
+        = render 'layouts/admin/error_message'
+        = yield
     = render 'layouts/admin/footer'
 
