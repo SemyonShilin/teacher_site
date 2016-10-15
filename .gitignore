@@ -22,6 +22,7 @@
 
 .idea
 /.idea/*
+/public/uploads
 Будет удалено .rspec
 Будет удалено app/assets/javascripts/staticpages.coffee
 Будет удалено app/assets/stylesheets/custom.scss

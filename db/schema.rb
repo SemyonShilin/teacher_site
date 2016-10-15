@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014184915) do
+ActiveRecord::Schema.define(version: 20161015052450) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admin_roles", force: :cascade do |t|
     t.string   "name",       null: false
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20161014184915) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "admin_users_admin_roles", id: false, force: :cascade do |t|
@@ -40,9 +43,9 @@ ActiveRecord::Schema.define(version: 20161014184915) do
     t.integer  "admin_role_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["admin_role_id"], name: "index_admin_users_admin_roles_on_admin_role_id"
-    t.index ["admin_user_id", "admin_role_id"], name: "index_unique_admin_users_admin_roles", unique: true
-    t.index ["admin_user_id"], name: "index_admin_users_admin_roles_on_admin_user_id"
+    t.index ["admin_role_id"], name: "index_admin_users_admin_roles_on_admin_role_id", using: :btree
+    t.index ["admin_user_id", "admin_role_id"], name: "index_unique_admin_users_admin_roles", unique: true, using: :btree
+    t.index ["admin_user_id"], name: "index_admin_users_admin_roles_on_admin_user_id", using: :btree
   end
 
   create_table "post_translations", force: :cascade do |t|
@@ -52,18 +55,17 @@ ActiveRecord::Schema.define(version: 20161014184915) do
     t.datetime "updated_at", null: false
     t.string   "title",      null: false
     t.text     "content"
-    t.index ["locale"], name: "index_post_translations_on_locale"
-    t.index ["post_id", "locale"], name: "index_unique_post_translations", unique: true
-    t.index ["post_id"], name: "index_post_translations_on_post_id"
+    t.index ["locale"], name: "index_post_translations_on_locale", using: :btree
+    t.index ["post_id", "locale"], name: "index_unique_post_translations", unique: true, using: :btree
+    t.index ["post_id"], name: "index_post_translations_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "admin_user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "home"
     t.string   "file"
-    t.index ["admin_user_id", "created_at"], name: "index_posts_on_admin_user_id_and_created_at"
+    t.index ["admin_user_id", "created_at"], name: "index_posts_on_admin_user_id_and_created_at", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,10 +89,13 @@ ActiveRecord::Schema.define(version: 20161014184915) do
     t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "admin_users_admin_roles", "admin_roles", on_delete: :cascade
+  add_foreign_key "admin_users_admin_roles", "admin_users", on_delete: :cascade
+  add_foreign_key "post_translations", "posts", on_delete: :cascade
 end
