@@ -23,6 +23,4 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: teacher_site_development
-  pool: 5
-  port: 5432
+  database: teacher_site
