@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  mount Ckeditor::Engine => '/ckeditor'
-
   devise_for :users, path: 'profile', path_names: { sign_up: 'register' },
              controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 

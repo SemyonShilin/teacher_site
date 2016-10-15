@@ -62,3 +62,4 @@ gem 'globalize', github: 'globalize/globalize'
 gem 'globalize-accessors'
 
 gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
+gem 'non-stupid-digest-assets'
