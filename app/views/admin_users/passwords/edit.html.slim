@@ -1,0 +1,23 @@
+= flash_messages
+.row
+  .col-sm-6.col-sm-offset-3
+    .panel.panel-default
+      .panel-body
+        h2.margin-bottom-20= t('.title')
+        = simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form-horizontal", role: "form" } do |f|
+          = f.input :reset_password_token, as: :hidden
+          = f.full_error :reset_password_token
+
+          .row
+            .col-md-12
+              = f.input :password, required: true, autofocus: true, hint: t('.hints.password', length: @minimum_password_length), wrapper: :input_layouts
+
+          .row
+            .col-md-12
+              = f.input :password_confirmation, required: true, wrapper: :input_layouts
+
+          .row
+            .col-md-12.text-right.no-padding
+              = f.button :submit, t('devise.passwords.edit.change_your_password')
+
+        = render "admin_users/shared/links"

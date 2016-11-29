@@ -1,0 +1,14 @@
+ru:
+  posts:
+    index:
+      title: Блог
+      read_more: Читать дальше
+      posted: Опубликовано %{date}
+    show:
+      posted: Опубликовано %{date}
+      title: Блог
+      download: Скачать файл
+  admin:
+    posts:
+      index:
+        posted: Опубликовано %{date}

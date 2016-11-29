@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    models:
+      post: Пост
+      posts: Посты
+    attributes:
+      title: Заголовок
+      content: Содежимое Поста

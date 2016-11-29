@@ -1,0 +1,23 @@
+/.row
+/  - @images.each do |image|
+/    .col-md-6.col-sm-6.margin-bottom-30
+/      .panel.panel-default
+/        .panel-heading
+/          h4.panel-title.text-center
+/            = image.photo_identifier
+/        .panel-body
+/          /style=( "background-image: url(#{image.photo.url});")
+/          p = image_tag image.photo.url, class: 'image_for_index'
+/        .panel-footer
+- @images.each_slice(2).each do |group|
+  .row
+    - group.each do |image|
+      .col-md-6.col-sm-6.margin-bottom-30
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title.text-center
+              = image.photo_identifier
+          .panel-body
+            /style=( "background-image: url(#{image.photo.url});")
+            p = image_tag image.photo.url, class: 'image_for_index'
+          .panel-footer

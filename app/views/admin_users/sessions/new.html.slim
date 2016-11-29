@@ -1,0 +1,15 @@
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal templatemo-signin-form", role: "form" } do |f|
+  .form-group
+    .col-md-12
+      = f.input :email, required: false, placeholder: 'Email', autofocus: true, class: 'col-sm-2 control-label', id: 'username'
+  .form-group
+    .col-md-12
+      = f.input :password, required: false, placeholder: 'Пароль', autofocus: true, class: 'col-sm-2 control-label', id: 'password'
+
+  .row
+    .col-md-6.col-sm-offset-1.pull-left
+      .checkbox
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    .col-md-5.pull-right style='padding-top:10px;'
+      = f.button :submit, 'Войти', class: 'btn btn-default'
+

@@ -1,0 +1,14 @@
+.main
+  .gallery-content
+    .container
+      .gallery-content-head.text-left
+        h3 Изображения
+      .section.group
+        - @images.each_slice(4).each do |group|
+          .row
+            - group.each_with_index do |image, index|
+              .col-md-3.grid_1_of_4.images_1_of_4
+                = link_to image.photo.url, class: 'fancybox', data: {'fancybox-group'=>'gallery'} do
+                  = image_tag image.photo.url, class: 'img-style row6'
+                  span
+

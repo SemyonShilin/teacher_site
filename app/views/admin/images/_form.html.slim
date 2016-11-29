@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @image] do |f|
+  = f.file_field :photo, required: true
+  /button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary">
+  /  Click here
+  /  </button> to load.
+  = f.button :submit, class: 'btn btn-primary'
+  = link_to 'Закрыть', admin_images_path, class: 'btn btn-default'

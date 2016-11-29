@@ -1,0 +1,7 @@
+.banner
+  .slider
+    .callbacks_container
+      ul#slider.rsidebar
+        - @image_for_slider.each do |image|
+          li
+            = image_tag(image.photo.url)
