@@ -18,7 +18,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
 
 /* 1. CSS Imports
 --------------------------------------- */
-@import "custom";
+@import "custom.scss";
 
 /* 2. General Styles
 --------------------------------------- */
