@@ -1,7 +1,44 @@
-- if action_name == 'show'
-  h4 Actions
-  ol.list-unstyled
-    li
-      = link_to 'Delete', [:admin, @post], method: :delete, class: 'btn btn-layout'
-    li
-      = link_to 'Edit', [:edit, :admin, @post], class: 'btn btn-layout'
+/- if action_name == 'show'
+/  h4 Actions
+/  ol.list-unstyled
+/    li
+/      = link_to 'Delete', [:admin, @post], method: :delete, class: 'btn btn-layout'
+/    li
+/      = link_to 'Edit', [:edit, :admin, @post], class: 'btn btn-layout'
+
+- if admin_user_signed_in?
+  .navbar-collapse.collapse.templatemo-sidebar
+    ul.templatemo-sidebar-menu
+      li
+        | Тут поиск
+      li.active
+        = link_to [:admin, :dashboard] do
+          i.fa.fa-home
+          | Главная страница
+      li.sub.open
+        = link_to '#' do
+          i.fa.fa-bars
+          | Управление контентом
+          .pull-right
+            span.caret
+        ul.templatemo-submenu
+          li
+            = link_to 'Посты', admin_posts_path
+
+          li
+            = link_to 'Изображения', admin_images_path
+          li
+            = link_to 'Редактирование статичных страниц', '#'
+      li
+        = link_to '#' do
+          i.fa.fa-users
+          span.badge.pull-right
+            = amount_new_users
+          | Пользователи
+      li
+        = link_to  [:destroy, :user, :session], method: :delete, data: { target:"#confirmModal", toggle:"modal" } do
+          i.fa.fa-sign-out
+          | Выйти
+        /a data-target="#confirmModal" data-toggle="modal" href="javascript:;"
+        /  i.fa.fa-sign-out
+        /  | Sign Out

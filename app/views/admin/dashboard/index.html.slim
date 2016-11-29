@@ -1,0 +1,14 @@
+.templatemo-charts
+  .row
+    .col-md-6
+      .panel.panel-info
+        .panel-heading Посты
+      .row.templatemo-chart-row
+
+      = line_chart line_for_posts_count
+    .col-md-6
+      .panel.panel-info
+        .panel-heading Пользователи
+      .row.templatemo-chart-row
+
+      = line_chart line_for_users_count

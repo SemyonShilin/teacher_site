@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015052450) do
+ActiveRecord::Schema.define(version: 20161124065711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20161015052450) do
     t.index ["admin_role_id"], name: "index_admin_users_admin_roles_on_admin_role_id", using: :btree
     t.index ["admin_user_id", "admin_role_id"], name: "index_unique_admin_users_admin_roles", unique: true, using: :btree
     t.index ["admin_user_id"], name: "index_admin_users_admin_roles_on_admin_user_id", using: :btree
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_images_on_post_id", using: :btree
   end
 
   create_table "post_translations", force: :cascade do |t|

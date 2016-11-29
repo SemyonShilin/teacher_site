@@ -3,8 +3,11 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 //= require jquery
-// require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require ckeditor/init
 //= require ckeditor/config
-//= require_tree .
+//= require admin/highcharts
+//= require chartkick
+//= require admin/sidebar
+//= require_self

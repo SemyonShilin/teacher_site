@@ -53,13 +53,20 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 gem 'cancancan'
+
 gem 'carrierwave'
+gem 'mini_magick'
+
 gem 'simple_form'
 gem 'slim-rails'
-gem 'mini_magick'
 
 gem 'globalize', github: 'globalize/globalize'
 gem 'globalize-accessors'
 
 gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
+# gem 'chartjs-ror'
+gem 'chartkick'
+
 gem 'non-stupid-digest-assets'
+gem 'font-awesome-sass'
+gem 'breadcrumbs_on_rails'

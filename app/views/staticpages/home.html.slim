@@ -1,1 +1,28 @@
-h1 xxx
+= render 'layouts/slider'
+
+.content
+  .welcome-section
+    .container
+      .col-md-6.welcome-grid.text-center
+        h3 Добро пожаловать
+        p sfgkljs;fkgjfkgs
+      .col-md-6.images
+        .img1
+          = image_tag 'a1.jpg', class: 'img-responsive'
+        .img2
+          = image_tag 'a2', class: 'img-responsive'
+        .clearfix
+      .clearfix
+  .about-section.text-center
+    .container
+      h2 Обо мне
+      .col-md-6.about-section-grid.text-left
+        h4 rrrrrrrrr
+        p eeeeeeee
+      .col-md-6.about-section-grid.text-left
+        h4 rrrrrrrrr
+        p eeeeeeee
+      .clearfix
+      = link_to about_path, class: 'btn btn-1 btn-1c' do
+        | Читать дальше
+

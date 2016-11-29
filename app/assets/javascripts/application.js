@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.fancybox
 // require bootstrap-sprockets
 //= require jquery_ujs
-//= require_tree .
+//= require header
+//= require footer
+//= require images
+//= require responsiveslides.min
+//= require staticpages
+//= require easing
+//= require move-top
+//= require_self

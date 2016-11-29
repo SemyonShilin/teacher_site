@@ -1,4 +1,25 @@
-div.blog-footer
-  p Blog
-  = link_to 'Contact', contact_path
-  p = link_to 'Back to top', '#'
+/div.blog-footer
+/  p Blog
+/  = link_to 'Contact', contact_path
+/  p = link_to 'Back to top', '#'
+
+.footer
+  .container
+    .col-md-5.contact-section
+      h4 Contact Form
+
+    .col-md-7.follow-us
+      h4 Follow Us
+      .social-icons
+        i.facebook
+        i.twitter
+        i.pinterest
+        i.googlepluse
+      p Hello
+      .copyright
+        p
+          = link_to 'Google', '#'
+    .clearfix
+
+= link_to '#', id: 'toTop', style: 'display: block;' do
+  span#toTopHover style="opacity: 1;"

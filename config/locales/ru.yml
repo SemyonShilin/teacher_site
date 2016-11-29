@@ -1,1 +1,6 @@
 ru:
+  time:
+    formats:
+      time: "%H:%M"
+      date: "%d.%m.%Y"
+      long: "%d.%m.%Y %H:%M"

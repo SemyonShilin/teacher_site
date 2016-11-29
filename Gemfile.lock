@@ -63,6 +63,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.2)
     byebug (9.0.6)
     cancancan (1.15.0)
@@ -79,6 +80,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chartkick (2.1.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -102,6 +104,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     globalize-accessors (0.2.1)
@@ -249,13 +253,16 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  breadcrumbs_on_rails
   byebug
   cancancan
   capybara
   carrierwave
+  chartkick
   ckeditor!
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass
   globalize!
   globalize-accessors
   jbuilder (~> 2.5)
@@ -281,4 +288,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.13.4
+   1.13.6

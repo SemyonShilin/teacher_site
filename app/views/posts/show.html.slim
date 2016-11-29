@@ -1,6 +1,25 @@
-.col-sm-8
-  .blog-post
-    h2.blog-title = @post.title
-    p.blog-post-meta = @post.created_at
-    div = @post.content.html_safe
-    div = link_to 'Download', @post.file.url
+.main
+  .container
+    .blog-content
+      .section.group
+        .cont.span_2_of_3
+          .blog_desc
+            .section.group.example
+              /.col.blog_1_of_2
+              /  .blog-img
+              /    = image_tag(@post.images.first.photo.url, :width => 450, :height => 350, :class => 'leftimg')
+              /.col.blogdata_1_of_2
+              .blog_heading
+                p
+                  span = @post.title
+                p.post = t('.posted', date: l(@post.updated_at, format: :long))
+              .blog_data
+                p
+                  /.image_back1.leftimg style=( "background-image: url(#{@post.images.first.photo.thumb.url});")
+                  = image_tag(@post.images.first.photo.url, class:'image_back1 leftimg')
+                  = @post.content.html_safe
+                .row
+                  .col-md-12
+                    = link_to t('.download'), @post.file.url if @post.file.present?
+              .clearfix
+            .clearfix

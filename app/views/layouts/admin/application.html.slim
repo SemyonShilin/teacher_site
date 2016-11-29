@@ -7,13 +7,16 @@ html
     = stylesheet_link_tag    'admin/application', media: 'all'
     = javascript_include_tag 'admin/application'
   body
-    = render 'layouts/admin/header'
-    .container
-      .row
-        = render 'layouts/admin/error_message'
-        = yield
-        .col-sm-3.col-sm-offset-1.blog-sidebar
-          .sidebar-module
-            = render 'layouts/admin/sidebar'
-    = render 'layouts/admin/footer'
+    #main-wrapper
+      = render 'layouts/admin/header'
+      .template-page-wrapper
+        = render 'layouts/admin/sidebar'
+        div class=('templatemo-content-wrapper' if admin_user_signed_in?)
+          div class=('templatemo-content' if admin_user_signed_in?)
+            = render 'layouts/admin/breadcrumbs'
+
+            = render 'layouts/admin/error_message'
+            = yield
+
+        = render 'layouts/admin/footer'
 

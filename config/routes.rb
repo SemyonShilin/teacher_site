@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'staticpages#home'
 
   devise_for :users, path: 'profile', path_names: { sign_up: 'register' },
              controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
@@ -13,12 +13,14 @@ Rails.application.routes.draw do
   match '/contact', to: 'staticpages#contact', via: 'get'
 
   resources :posts, only: [:show, :index]
+  resources :images, only: [:show, :index]
 
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
 
     resources :posts
     resources :admin_users
+    resources :images
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

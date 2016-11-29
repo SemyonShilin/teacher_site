@@ -1,6 +1,32 @@
-- @posts.each do |post|
-  .blog-post
-    h2.blog-post-title = link_to post.title, [post]
-    p.blog-post-meta = l(post.updated_at, format: '%d %B %Y, %H:%M')
-    div
-      = post.content.html_safe
+/- @posts.each do |post|
+/  .blog-post
+/    h2.blog-post-title = link_to post.title, [post]
+/    p.blog-post-meta = l(post.updated_at, format: '%d %B %Y, %H:%M')
+/    div
+/      = post.content.html_safe
+
+.main
+  .blog-content
+    .blog-content-head.text-left
+      h3 = t('.title')
+    .section.group
+      .cont.span_2_of_3
+        - @posts.each do |post|
+          .blog_posts
+            .section.group.example
+              .col.blog_1_of_2
+                .blog_img
+                  = link_to image_tag(post.images.first.photo.url, class:'image_back'), post_path(post)
+                  /.image_back style=( "background-image: url(#{post.images.first.photo.thumb.url});")
+              .col.blogdata_1_of_2
+                .blog_heading
+                  p
+                    span = link_to post.title, [post]
+                  p.post = t('.posted', date: l(post.updated_at, format: :long))
+                .blog_data
+                  p = raw post.content.html_safe.truncate_words(30)
+                  .more
+                    = link_to t('.read_more'), [post], class: 'btn btn-1 btn-1d'
+              .clearfix
+            .clearfix
+

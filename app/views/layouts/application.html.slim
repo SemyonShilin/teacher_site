@@ -8,13 +8,8 @@ html
 
   body
     = render 'layouts/header'
-    .container
-      .row
-        - flash.each do |key, value|
-            div class="alert alert-#{key}"
-              = value
-        = yield
-        .col-sm-3.col-sm-offset-1.blog-sidebar
-          .sidebar-module
+    .content
+      /= render 'layouts/error_message'
+      = yield
 
     = render 'layouts/footer'

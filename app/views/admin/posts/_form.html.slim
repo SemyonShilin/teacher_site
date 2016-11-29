@@ -1,5 +1,9 @@
 = simple_form_for [:admin, @post] do |f|
   = f.input :title
-  = f.cktext_area :content, as: :ckeditor, ckeditor: { toolbar: 'MyToolbar' }
+  = f.cktext_area :content, as: :ckeditor
+  /, ckeditor: { toolbar: 'MyToolbar' }
+
+  = f.association :images, collection: image_list
   = f.file_field :file, required: true
-  = f.submit
+  = f.button :submit, class: 'btn btn-primary'
+  = link_to 'Закрыть', admin_posts_path, class: 'btn btn-default'
