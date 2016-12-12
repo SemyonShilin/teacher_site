@@ -1,0 +1,13 @@
+app:
+  build: .
+  command: sh docker/deploy.sh
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - "3000:3000"
+  environment:
+    RAILS_ENV: production
+  links:
+    - db
+db:
+  image: postgres

@@ -13,5 +13,7 @@ ADD Gemfile.lock /usr/src/app/Gemfile.lock
 RUN bundle install
 ADD . /usr/src/app
 
+RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+
 EXPOSE 3000
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
