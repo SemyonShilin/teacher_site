@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server "www.oes.ru", user: "app", roles: %w{app web}
+server "oes.ru", user: "app", roles: %w{app web}
