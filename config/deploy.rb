@@ -1,43 +1,4 @@
 # config valid only for current version of Capistrano
-lock "3.7.0"
-
-set :application, "teacher_site"
-set :repo_url, "git@github.com:ShilinSemyon/teacher_site.git"
-
-set :docker_role, :app
-set :docker_compose, true
-set :docker_compose_project_name, fetch(:application)
-
-namespace :docker do
-  namespace :compose do
-    task :bundle do
-      on roles(:app) do
-        within release_path do
-          execute :"docker-compose", compose_run_command(:app, "bundle install --without development test --jobs $(nproc) --path=/usr/local/bundle")
-        end
-      end
-    end
-    task :migrate do
-      on roles(:db) do
-        within release_path do
-          execute :"docker-compose", compose_run_command(:app, "bundle exec rails db:migrate")
-        end
-      end
-    end
-    task :assets do
-      on roles(:app) do
-        within release_path do
-          execute :"docker-compose", compose_run_command(:app, "bundle exec rake assets:precompile")
-        end
-      end
-    end
-  end
-  def compose_run_command(service, command); ["run", "--rm", "--no-deps", service, command].join(" "); end
-end
-
-before "docker:deploy:compose:start", "docker:compose:assets"
-before "docker:compose:assets", "docker:compose:migrate"
-before "docker:compose:migrate", "docker:compose:bundle"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
