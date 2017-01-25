@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   resource :user, path: 'profile', as: 'profile', only: [:show]
 
-  match '/about', to: 'staticpages#about', via: 'get'
-  match '/contact', to: 'staticpages#contact', via: 'get'
+  match '/about', to: 'staticpages#about', via: [:get]
+  match '/contact', to: 'staticpages#contact', via: [:get]
+  match 'feedback' => 'users#feedback', as: :feedback, via: [:post]
 
   resources :posts, only: [:show, :index]
   resources :images, only: [:show, :index]
@@ -21,6 +22,12 @@ Rails.application.routes.draw do
     resources :posts
     resources :admin_users
     resources :images
+    resources :users do
+      put :ban, on: :member
+    end
+    resources :feedbacks, only: [:index, :show, :edit, :update] do
+      post :reply, on: :member
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

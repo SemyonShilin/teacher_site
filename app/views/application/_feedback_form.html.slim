@@ -1,0 +1,7 @@
+= simple_form_for @feedback, url: feedback_path, method: :post, remote: true do |f|
+
+  - unless current_user
+    = f.input :user_email
+  = f.input :subject
+  = f.text_area :body, as: :text, required: false
+  = f.submit 'Отправить', class: 'btn btn-layout btn-sm'

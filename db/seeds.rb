@@ -13,7 +13,7 @@ ActiveRecord::Base.transaction do
     AdminRole.create(name: name)
   end
 
-  puts " (#{ AdminRole.count })"
+  puts "admin role: (#{ AdminRole.count })"
 end
 
 ActiveRecord::Base.transaction do
@@ -21,5 +21,5 @@ ActiveRecord::Base.transaction do
 
   AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin_roles: [AdminRole.find_by_name('admin')])
 
-  puts " (#{ AdminUser.count })"
+  puts "admin user: (#{ AdminUser.count })"
 end

@@ -1,0 +1,11 @@
+h3 Тема
+p= @feedback.subject
+
+h3 Сообщение
+p= @feedback.body.html_safe
+
+div#hide-block style="display:none;"
+  #for_ajax
+    = render 'feedback_form'
+
+

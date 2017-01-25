@@ -1,0 +1,23 @@
+.row
+  .col-sm-6 class = ('col-sm-offset-3' if controller_name == 'sessions')
+
+    h2.margin-bottom-20= t('.title')
+    = simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal", role: "form" } do |f|
+
+      .row
+        .col-md-12
+          = f.input :email, placeholder: t('activerecord.attributes.user.email'), required: false, autofocus: true
+
+      .row
+        .col-md-12
+          = f.input :password, placeholder: t('activerecord.attributes.user.password'), required: false
+
+      .row
+        .col-md-12
+          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+      .row
+        .col-md-12.text-right.no-padding
+          = f.button :submit, 'Войти', class: "btn btn-default"
+
+        = render "users/shared/links"

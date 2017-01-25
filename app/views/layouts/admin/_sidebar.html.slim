@@ -6,39 +6,109 @@
 /    li
 /      = link_to 'Edit', [:edit, :admin, @post], class: 'btn btn-layout'
 
-- if admin_user_signed_in?
-  .navbar-collapse.collapse.templatemo-sidebar
-    ul.templatemo-sidebar-menu
-      li
-        | Тут поиск
-      li.active
-        = link_to [:admin, :dashboard] do
-          i.fa.fa-home
-          | Главная страница
-      li.sub.open
-        = link_to '#' do
-          i.fa.fa-bars
-          | Управление контентом
-          .pull-right
-            span.caret
-        ul.templatemo-submenu
-          li
-            = link_to 'Посты', admin_posts_path
+/- if admin_user_signed_in?
+/  .navbar-collapse.collapse.templatemo-sidebar
+/    ul.templatemo-sidebar-menu
+/      li
+/        | Тут поиск
+/      li.active
+/        = link_to [:admin, :dashboard] do
+/          i.fa.fa-home
+/          | Главная страница
+/      li.sub.open
+/        = link_to '#' do
+/          i.fa.fa-bars
+/          | Управление контентом
+/          .pull-right
+/            span.caret
+/        ul.templatemo-submenu
+/          li
+/            = link_to 'Посты', admin_posts_path
+/
+/          li
+/            = link_to 'Изображения', admin_images_path
+/          li
+/            = link_to 'Редактирование статичных страниц', '#'
+/      li
+/        = link_to admin_users_path do
+/          i.fa.fa-users
+/          span.badge.pull-right
+/            = amount_new_users
+/          | Пользователи
+/      li
+/        = link_to  [:destroy, :user, :session], method: :delete, data: { target:"#confirmModal", toggle:"modal" } do
+/          i.fa.fa-sign-out
+/          | Выйти
+/        /a data-target="#confirmModal" data-toggle="modal" href="javascript:;"
+/        /  i.fa.fa-sign-out
+/        /  | Sign Out
+/
+/
 
-          li
-            = link_to 'Изображения', admin_images_path
-          li
-            = link_to 'Редактирование статичных страниц', '#'
-      li
-        = link_to '#' do
-          i.fa.fa-users
-          span.badge.pull-right
-            = amount_new_users
-          | Пользователи
-      li
-        = link_to  [:destroy, :user, :session], method: :delete, data: { target:"#confirmModal", toggle:"modal" } do
-          i.fa.fa-sign-out
-          | Выйти
+- if admin_user_signed_in?
+  .col-sm-2.col-md-2.navbar-collapse.collapse.templatemo-sidebar
+    #accordion.panel-group
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a
+              span.glyphicon.glyphicon-search
+              | Тут поиск
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            = link_to [:admin, :dashboard] do
+              span.glyphicon.glyphicon-home
+              | Главная страница
+
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a data-parent="#accordion" data-toggle="collapse" href="#collapseOne"
+              span.glyphicon.glyphicon-list
+              | Управление контентом
+        #collapseOne.panel-collapse.collapse
+          .panel-body
+            table.table
+              tr
+                td
+                  span.glyphicon.glyphicon-pencil.text-primary
+                  = link_to 'Посты', admin_posts_path
+              tr
+                td
+                  span.glyphicon.glyphicon-flash.text-success
+                  = link_to 'Изображения', admin_images_path
+
+              /tr
+              /  td
+              /    span.glyphicon.glyphicon-file.text-info
+              /    = link_to 'Статичные страницы', admin_manage_static_pages_path
+
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            = link_to [:admin, :feedbacks] do
+              span.glyphicon.glyphicon-home
+              span.badge.pull-right
+                = amount_new_feedbacks
+              | Сообщения
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            = link_to [:admin, :users] do
+              span.glyphicon.glyphicon-home
+              span.badge.pull-right
+                = amount_new_users
+              | Пользователи
+
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a data-parent="#accordion"
+              span.glyphicon.glyphicon-log-out
+              = link_to [:destroy, :admin_user, :session], method: :delete, data: { target: "#confirmModal", toggle: "modal" } do
+                | Выйти
+
         /a data-target="#confirmModal" data-toggle="modal" href="javascript:;"
         /  i.fa.fa-sign-out
         /  | Sign Out

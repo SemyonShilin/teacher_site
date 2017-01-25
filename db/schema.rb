@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124065711) do
+ActiveRecord::Schema.define(version: 20170125133455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admin_roles", force: :cascade do |t|
     t.string   "name",       null: false
@@ -48,6 +49,20 @@ ActiveRecord::Schema.define(version: 20161124065711) do
     t.index ["admin_user_id"], name: "index_admin_users_admin_roles_on_admin_user_id", using: :btree
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "admin_user_id"
+    t.string   "user_email"
+    t.string   "subject"
+    t.text     "body"
+    t.string   "status",        default: "new"
+    t.text     "admin_message"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["admin_user_id"], name: "index_feedbacks_on_admin_user_id", using: :btree
+    t.index ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer  "post_id"
     t.string   "photo"
@@ -56,20 +71,18 @@ ActiveRecord::Schema.define(version: 20161124065711) do
     t.index ["post_id"], name: "index_images_on_post_id", using: :btree
   end
 
-  create_table "post_translations", force: :cascade do |t|
-    t.integer  "post_id",    null: false
-    t.string   "locale",     null: false
+  create_table "manage_static_pages", force: :cascade do |t|
+    t.integer  "page_type"
+    t.string   "title"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "title",      null: false
-    t.text     "content"
-    t.index ["locale"], name: "index_post_translations_on_locale", using: :btree
-    t.index ["post_id", "locale"], name: "index_unique_post_translations", unique: true, using: :btree
-    t.index ["post_id"], name: "index_post_translations_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "admin_user_id"
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "file"
@@ -77,13 +90,13 @@ ActiveRecord::Schema.define(version: 20161124065711) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string   "name"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -92,11 +105,12 @@ ActiveRecord::Schema.define(version: 20161124065711) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "banned",                 default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -105,5 +119,6 @@ ActiveRecord::Schema.define(version: 20161124065711) do
 
   add_foreign_key "admin_users_admin_roles", "admin_roles", on_delete: :cascade
   add_foreign_key "admin_users_admin_roles", "admin_users", on_delete: :cascade
-  add_foreign_key "post_translations", "posts", on_delete: :cascade
+  add_foreign_key "feedbacks", "admin_users", on_delete: :cascade
+  add_foreign_key "feedbacks", "users", on_delete: :cascade
 end

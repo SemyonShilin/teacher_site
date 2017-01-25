@@ -6,6 +6,7 @@ class AdminUser < ApplicationRecord
 
   has_and_belongs_to_many :admin_roles, join_table: 'admin_users_admin_roles'
   has_many :posts
+  has_many :feedbacks
 
   def self.current
     Thread.current[:current_admin_user]

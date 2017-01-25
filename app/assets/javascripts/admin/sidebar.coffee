@@ -4,3 +4,4 @@ $(document).ready ->
       $(this).parent().removeClass('open')
     else
       $(this).parent().addClass('open')
+

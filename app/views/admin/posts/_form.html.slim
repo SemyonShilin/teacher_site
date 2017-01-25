@@ -3,7 +3,10 @@
   = f.cktext_area :content, as: :ckeditor
   /, ckeditor: { toolbar: 'MyToolbar' }
 
-  = f.association :images, collection: image_list
+  = f.association :images, collection: image_list,
+    value_method: :id,
+    label_method: :photo
+
   = f.file_field :file, required: true
   = f.button :submit, class: 'btn btn-primary'
   = link_to 'Закрыть', admin_posts_path, class: 'btn btn-default'

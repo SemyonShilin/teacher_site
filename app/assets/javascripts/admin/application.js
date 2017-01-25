@@ -10,4 +10,5 @@
 //= require admin/highcharts
 //= require chartkick
 //= require admin/sidebar
+//= require admin/feedback
 //= require_self

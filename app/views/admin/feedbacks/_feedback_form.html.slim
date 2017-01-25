@@ -1,0 +1,7 @@
+= simple_form_for @feedback, url: reply_admin_feedback_path(@feedback), method: :post do |f|
+
+  = f.input :admin_message, as: :ckeditor
+  = f.submit 'Отправить', class: 'btn btn-layout btn-sm',
+          data: { confirm: t('simple_form.helpers.submit.feedback.data.confirm'),
+                  commit: t('simple_form.helpers.submit.feedback.commit'),
+                  cancel: t('simple_form.helpers.submit.feedback.cancel')}

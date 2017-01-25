@@ -1,0 +1,24 @@
+.row
+  .col-sm-6.col-sm-offset-3
+
+    h2.margin-bottom-20.text-center= t('.title')
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal", role: "form"} do |f|
+      = f.error_notification
+
+      .row
+        .col-md-12
+          = f.input :email, placeholder: t('activerecord.attributes.user.email'), required: false, autofocus: true
+
+      .row
+        .col-md-12
+          = f.input :password, placeholder: t('activerecord.attributes.user.password'), required: false
+
+      .row
+        .col-md-12
+          = f.input :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirmation'), required: false
+
+      .row
+        .col-md-4.pull-right.no-padding
+          = f.button :submit, 'Зарегистрироваться', class: "btn btn-default"
+
+      = render "users/shared/links"

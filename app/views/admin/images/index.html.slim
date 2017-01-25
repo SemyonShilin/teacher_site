@@ -9,6 +9,13 @@
 /          /style=( "background-image: url(#{image.photo.url});")
 /          p = image_tag image.photo.url, class: 'image_for_index'
 /        .panel-footer
+
+.row.margin-bottom-30
+  .col-md-12
+    ul.nav.nav-pills
+      li
+        = link_to 'Добавить изображение', new_admin_image_path, class: 'btn btn-default'
+
 - @images.each_slice(2).each do |group|
   .row
     - group.each do |image|
@@ -19,5 +26,5 @@
               = image.photo_identifier
           .panel-body
             /style=( "background-image: url(#{image.photo.url});")
-            p = image_tag image.photo.url, class: 'image_for_index'
+            p = image_tag image.photo.thumb.url, class: 'image_for_index'
           .panel-footer

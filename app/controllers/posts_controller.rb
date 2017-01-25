@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:translations).order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -28,6 +28,8 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:file)

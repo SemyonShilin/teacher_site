@@ -71,5 +71,5 @@ gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
 gem 'chartkick'
 
 gem 'non-stupid-digest-assets'
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'
 gem 'breadcrumbs_on_rails'
