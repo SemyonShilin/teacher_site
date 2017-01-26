@@ -5,8 +5,11 @@
 
   = f.association :images, collection: image_list,
     value_method: :id,
-    label_method: :photo
+    label_method: 'photo_identifier'
 
   = f.file_field :file, required: true
-  = f.button :submit, class: 'btn btn-primary'
-  = link_to 'Закрыть', admin_posts_path, class: 'btn btn-default'
+
+  .row
+    .col-md-12.form-group.text-right
+      = f.button :submit, 'Создать', class: 'btn btn-primary'
+      = link_to 'Закрыть', admin_posts_path, class: 'btn btn-default'

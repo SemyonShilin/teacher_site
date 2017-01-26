@@ -4,4 +4,7 @@
     = f.input :user_email
   = f.input :subject
   = f.text_area :body, as: :text, required: false
-  = f.submit 'Отправить', class: 'btn btn-layout btn-sm'
+
+  .row
+    .col-md-12.form-group.text-right
+      = f.submit 'Отправить', class: 'btn btn-layout btn-sm'

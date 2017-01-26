@@ -26,5 +26,5 @@
               = image.photo_identifier
           .panel-body
             /style=( "background-image: url(#{image.photo.url});")
-            p = image_tag image.photo.thumb.url, class: 'image_for_index'
+            p.text-center = image_tag image.photo.thumb.url
           .panel-footer

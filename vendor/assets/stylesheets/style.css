@@ -423,7 +423,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 }
 .footer{
 	background:#444444;
-	padding:5em 0;
+	/*padding:5em 0;*/
 }
 .contact-section input[type="text"], .contact-section textarea {
 	width: 95%;
@@ -1296,7 +1296,7 @@ a.hvr-bounce-to-left:hover,a.hvr-bounce-to-left:focus,a.hvr-bounce-to-left:activ
 		font-size: 1.3em;
 	}
 	.footer {
-		padding: 4em 0;
+		/*padding: 4em 0;*/
 	}
 	.header-top {
 		padding: 1em 0;
@@ -1403,9 +1403,9 @@ a.hvr-bounce-to-left:hover,a.hvr-bounce-to-left:focus,a.hvr-bounce-to-left:activ
 	.main-map iframe {
 		min-height:350px;
 	}
-	.footer {
-		padding: 3em 0;
-	}
+	/*.footer {*/
+		/*padding: 3em 0;*/
+	/*}*/
 	.main {
 		padding: 3em 0;
 	}
@@ -1997,9 +1997,9 @@ a.hvr-bounce-to-left:hover,a.hvr-bounce-to-left:focus,a.hvr-bounce-to-left:activ
 	.contact-section,.follow-us {
 		padding: 0;
 	}
-	.footer {
-		padding: 2em 0;
-	}
+	/*.footer {*/
+		/*padding: 2em 0;*/
+	/*}*/
 	.about-img {
 		width: 100%;
 		padding:0;
