@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   match '/contact', to: 'staticpages#contact', via: [:get]
   match 'feedback' => 'users#feedback', as: :feedback, via: [:post]
 
-  resources :posts, only: [:show, :index]
+  resources :posts, only: [:show, :index] do
+    resources :comments
+  end
+
   resources :images, only: [:show, :index]
 
   namespace :admin do

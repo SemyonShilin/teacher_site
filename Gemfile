@@ -73,3 +73,5 @@ gem 'chartkick'
 gem 'non-stupid-digest-assets'
 #gem 'font-awesome-sass'
 gem 'breadcrumbs_on_rails'
+
+gem 'react-rails'

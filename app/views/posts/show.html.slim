@@ -16,10 +16,12 @@
               .blog_data
                 p
                   /.image_back1.leftimg style=( "background-image: url(#{@post.images.first.photo.thumb.url});")
-                  = image_tag(@post.images.first.photo.url, class:'image_back1 leftimg')
+                  = image_tag(@post.images.first.photo.thumb.url, class:'image_back1 leftimg')
                   = @post.content.html_safe
                 .row
                   .col-md-12
                     = link_to t('.download'), @post.file.url if @post.file.present?
               .clearfix
             .clearfix
+
+= render template: 'comments/index'

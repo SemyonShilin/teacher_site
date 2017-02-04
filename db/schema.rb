@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125133455) do
+ActiveRecord::Schema.define(version: 20170202191037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20170125133455) do
     t.index ["admin_role_id"], name: "index_admin_users_admin_roles_on_admin_role_id", using: :btree
     t.index ["admin_user_id", "admin_role_id"], name: "index_unique_admin_users_admin_roles", unique: true, using: :btree
     t.index ["admin_user_id"], name: "index_admin_users_admin_roles_on_admin_user_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "feedbacks", force: :cascade do |t|

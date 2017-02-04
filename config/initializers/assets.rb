@@ -12,4 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += Ckeditor.assets
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images', '*')
 Rails.application.config.assets.precompile += %w( ckeditor/* )
-# Rails.application.config.assets.precompile += %w( 123.png a1.jpg a2.jpg logo.png pic8.jpg pic9.jpg)
+Rails.application.config.assets.precompile += %w( a1.jpg a2.jpg logo.png pic8.jpg pic9.jpg 123.png 123(e).png)

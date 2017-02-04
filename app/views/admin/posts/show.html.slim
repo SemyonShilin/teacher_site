@@ -2,7 +2,7 @@
   .col-md-12
     p
       /.image_back1.leftimg style=("background-image: url(#{@post.images.first.photo.thumb.url});")
-      = image_tag(@post.images.first.photo.url, class: 'image_back1 leftimg')
+      = image_tag(@post.images.first.photo.thumb.url, class: 'image_back1 leftimg')
       h4 = @post.title
       p= l(@post.updated_at, format: :long)
       p = @post.content.html_safe

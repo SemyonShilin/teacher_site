@@ -1,0 +1,3 @@
+#@CommentForm = React.createClass
+#  getInitialState: ->
+#

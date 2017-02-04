@@ -21,4 +21,7 @@
 //= require staticpages
 //= require easing
 //= require move-top
+//= require react
+//= require react_ujs
+//= require components
 //= require_self
