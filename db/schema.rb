@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170202191037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admin_roles", force: :cascade do |t|
     t.string   "name",       null: false
@@ -78,6 +79,14 @@ ActiveRecord::Schema.define(version: 20170202191037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_images_on_post_id", using: :btree
+  end
+
+  create_table "manage_static_pages", force: :cascade do |t|
+    t.integer  "page_type"
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

@@ -23,9 +23,9 @@ h1 Управление пользователями
           tr
             td = user.id
             td = user&.name
-            td = t('.posted', date: l(user&.confirmed_at, format: :date))
+            td = user&.confirmed_at? ? t('.confirmed', date: l(user&.confirmed_at, format: :date)) : t('.not_confirmed')
             td = user&.last_sign_in_at
-            td = user.banned?
+            td = t("#{ user.banned? }")
             td
               .btn-group.pull-right
                 button.btn.btn-info.dropdown-toggle data-toggle="dropdown" type="button"

@@ -1,7 +1,7 @@
 ru:
   posts:
     index:
-      title: Блог
+      title: Статьи
       read_more: Читать дальше
       posted: Опубликовано %{date}
     show:

@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  def index
-  end
+  # def index
+  # end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Post.find(params[:post_id]).comments.build(comment_params)
 
     if @comment.save
       render json: @comment
@@ -15,6 +15,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user, :post, :body)
+    params.require(:comment).permit(:user, :post, :body, :post_id, :user_id)
   end
 end

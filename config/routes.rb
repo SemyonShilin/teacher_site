@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, path: 'admin', path_names: { sign_in: 'login' },
              controllers: { sessions: 'admin_users/sessions' }
 
-  resource :user, path: 'profile', as: 'profile', only: [:show]
+  resource :users, path: 'profile', as: 'profile', only: [:show]
 
   match '/about', to: 'staticpages#about', via: [:get]
   match '/contact', to: 'staticpages#contact', via: [:get]

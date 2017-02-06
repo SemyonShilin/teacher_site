@@ -1,1 +1,1 @@
-= react_component 'Comments', { data: @comments }
+= react_component 'Comments', { data: {comments: @comments, current_user: current_user&.id, post_id: @post.id} }

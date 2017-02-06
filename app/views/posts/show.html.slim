@@ -15,7 +15,6 @@
                 p.post = t('.posted', date: l(@post.updated_at, format: :long))
               .blog_data
                 p
-                  /.image_back1.leftimg style=( "background-image: url(#{@post.images.first.photo.thumb.url});")
                   = image_tag(@post.images.first.photo.thumb.url, class:'image_back1 leftimg')
                   = @post.content.html_safe
                 .row
@@ -24,4 +23,4 @@
               .clearfix
             .clearfix
 
-= render template: 'comments/index'
+      = render template: 'comments/index'

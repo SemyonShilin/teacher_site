@@ -1,4 +1,6 @@
 ru:
+  'true': Да
+  'false': Нет
   time:
     formats:
       time: "%H:%M"

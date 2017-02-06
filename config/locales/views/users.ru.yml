@@ -1,0 +1,6 @@
+ru:
+  admin:
+    users:
+      index:
+        confirmed: Подтвержден %{date}
+        not_confirmed: Аккаунт еще не подтвержден
