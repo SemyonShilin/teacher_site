@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user).order(created_at: :desc).as_json(include: { user: { only: [:name, :email] } })
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+                  .as_json(include: { user: { only: [:id, :name, :email] }})
 
     respond_to do |format|
       format.html

@@ -9,6 +9,11 @@
     comments = @state.comments.slice()
     comments.unshift comment
     @setState comments: comments
+  deleteComment: (comment) ->
+    comments = @state.comments.slice()
+    index = comments.indexOf comment
+    comments.splice index, 1
+    @replaceState comments: comments
   render: ->
     React.DOM.div null,
       React.DOM.div
@@ -22,7 +27,7 @@
           'Комментарии'
         if @state.comments.length
           for comment in @state.comments
-            React.createElement Comment, key: comment.id, comment: comment
+            React.createElement Comment, key: comment.id, comment: comment, current_user: @state.user_id, handleDeleteComment: @deleteComment
         else
           React.DOM.div
             className: 'alert alert-success'

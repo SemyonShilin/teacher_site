@@ -12,7 +12,7 @@
     @state.body
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post "/posts/#{@props.post_id}/comments", { comment: @state }, (data) =>
+    $.post "/posts/#{@state.post_id}/comments", { comment: @state }, (data) =>
       @props.handleNewComment data
       @setState @getInitialState()
       'json'
