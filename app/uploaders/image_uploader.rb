@@ -54,4 +54,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def image
+    @image ||= MiniMagick::Image.open( model.send(mounted_as).path )
+  end
+
+  def image_width
+    image[:width]
+  end
+
+  def image_height
+    image[:height]
+  end
 end

@@ -40,17 +40,17 @@ footer
           | 210, Aggarwal Tower, Rohini sec 9, New Delhi -        110085, INDIA
         p
           i.fa.fa-phone
-          | Phone (India) : +91 9999 878 398
+          | Phone (Russia) : +91 9999 878 398
         p
           i.fa.fa-envelope
-          | E-mail : info@webenlance.com
+          | E-mail : bigrussianboss@mail.ru
       .col-md-2.col-sm-6.paddingtop-bottom
-        h6.heading7 GENERAL LINKS
+        h6.heading7 Основные ссылки
         ul.footer-ul
           li
-            a href="#"  Career
+            = link_to 'Главная страница', root_path
           li
-            a href="#"  Privacy Policy
+            = link_to 'Изображения', images_path
           li
             a href="#"  Terms & Conditions
           li
@@ -62,7 +62,8 @@ footer
           li
             a href="#"  Frequently Ask Questions
       .col-md-3.col-sm-6.paddingtop-bottom
-        h6.heading7 LATEST POST
+        h6.heading7
+          | Последние статьи
         .post
           - three_last_posts.each do |post|
             p
@@ -77,21 +78,15 @@ footer
 .copyright
   .container
     .col-md-6
-      p © 2016 - All Rights with Webenlance
+      p © 2017 - SS
     .col-md-6
       ul.bottom_ul
         li
-          a href="#"  webenlance.com
+          = link_to 'Обо мне', about_path
         li
-          a href="#"  About us
+          = link_to 'Статьи', posts_path
         li
-          a href="#"  Blog
-        li
-          a href="#"  Faq's
-        li
-          a href="#"  Contact us
-        li
-          a href="#"  Site Map
+          = link_to 'Мои Контакты', contact_path
 
 
 
