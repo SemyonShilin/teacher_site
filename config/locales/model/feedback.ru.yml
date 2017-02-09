@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      feedback: Пост
+      feedbacks: Посты
+    attributes:
+      feedback:
+        subject: Заголовок
+        body: Содежимое
+        admin_message: Содержимое ответа
+    enum:
+      status:
+        feed_new: Новое сообщение
+        replied: Отвеченно

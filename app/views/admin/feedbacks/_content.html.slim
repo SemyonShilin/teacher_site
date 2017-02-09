@@ -1,7 +1,7 @@
-h3 Тема
+h3= Feedback.human_attribute_name(:subject)
 p= @feedback.subject
 
-h3 Сообщение
+h3= Feedback.human_attribute_name(:body)
 p= @feedback.body.html_safe
 
 div#hide-block style="display:none;"

@@ -3,7 +3,7 @@
   - unless current_user
     = f.input :user_email
   = f.input :subject
-  = f.text_area :body, as: :text, required: false
+  = f.input :body, as: :text
 
   .row
     .col-md-12.form-group.text-right

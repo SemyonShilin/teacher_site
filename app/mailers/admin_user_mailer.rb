@@ -6,7 +6,7 @@ class AdminUserMailer < ApplicationMailer
     from = feedback&.user_email || user.email
 
     mail(from: from, subject: feedback.subject, to: admin_users.pluck(:email)) do |format|
-      format.html { render 'user_mailer/template' }
+      format.html { render 'template' }
     end
   end
 end

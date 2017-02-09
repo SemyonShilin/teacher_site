@@ -24,8 +24,8 @@ h1 Сообщения обратной связи
             td = feedback.id
             td = feedback&.user&.email || feedback.user_email
             td = feedback.subject
-            td = feedback.status
-            td = t('.posted', date: l(feedback.created_at, format: :date))
+            td = t("activerecord.enum.status.#{feedback.status}")
+            td = t('.sended', date: l(feedback.created_at, format: :date))
             td
               .btn-group.pull-right
                 button.btn.btn-info.dropdown-toggle data-toggle="dropdown" type="button"

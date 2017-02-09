@@ -4,5 +4,7 @@ ru:
       post: Пост
       posts: Посты
     attributes:
-      title: Заголовок
-      content: Содежимое Поста
+      post:
+        title: Заголовок
+        content: Содежимое Поста
+        images: Изображения

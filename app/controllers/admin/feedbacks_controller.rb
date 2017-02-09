@@ -12,7 +12,7 @@ class Admin::FeedbacksController < Admin::ApplicationController
   end
 
   def index
-    @feedbacks = Feedback.all.order(:status)
+    @feedbacks = Feedback.all.order(:status, created_at: :desc)
   end
 
   def show
