@@ -6,8 +6,6 @@
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
-  handleFocus: (e) ->
-
   valid: ->
     @state.body
   handleSubmit: (e) ->

@@ -75,3 +75,4 @@ gem 'non-stupid-digest-assets'
 gem 'breadcrumbs_on_rails'
 
 gem 'react-rails'
+# gem 'momentjs-rails'

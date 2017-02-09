@@ -6,13 +6,15 @@
   getDefaultProps: ->
     comments: []
   addComment: (comment) ->
-    comments = @state.comments.slice()
-    comments.unshift comment
+    comments = React.addons.update(@state.comments, { $unshift: [comment] })
     @setState comments: comments
+  updateComment: (comment, data) ->
+    index = @state.comments.indexOf comment
+    comments = React.addons.update(@state.comments, { $splice: [[index, 1, data]] })
+    @replaceState comments: comments
   deleteComment: (comment) ->
-    comments = @state.comments.slice()
-    index = comments.indexOf comment
-    comments.splice index, 1
+    index = @state.comments.indexOf comment
+    comments = React.addons.update(@state.comments, { $splice: [[index, 1]] })
     @replaceState comments: comments
   render: ->
     React.DOM.div null,
@@ -27,7 +29,8 @@
           'Комментарии'
         if @state.comments.length
           for comment in @state.comments
-            React.createElement Comment, key: comment.id, comment: comment, current_user: @state.user_id, handleDeleteComment: @deleteComment
+            React.createElement Comment, key: comment.id, comment: comment, current_user: @state.user_id,
+              handleDeleteComment: @deleteComment, handleEditComment: @updateComment
         else
           React.DOM.div
             className: 'alert alert-success'

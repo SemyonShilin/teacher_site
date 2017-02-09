@@ -26,14 +26,7 @@
               = link_to images_path do
                 span data-hover="Изображения"
                   | Изображения
-            li
-              = link_to about_path do
-                span data-hover="Обо Мне"
-                  | Обо Мне
-            li
-              = link_to contact_path do
-                span data-hover="Контакты"
-                  | Контакты
+
             - if user_signed_in?
               li
                 = link_to [:destroy, :user, :session], method: :delete do

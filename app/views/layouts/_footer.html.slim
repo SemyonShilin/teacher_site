@@ -33,14 +33,11 @@ footer
   .container
     .row
       .col-md-4.col-sm-6.footerleft
-        .logofooter Logo
-        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.
+        .logofooter Контактная информация
+        p OES - Шилина Ольга Евгеньевна
         p
           i.fa.fa-map-pin
-          | 210, Aggarwal Tower, Rohini sec 9, New Delhi -        110085, INDIA
-        p
-          i.fa.fa-phone
-          | Phone (Russia) : +91 9999 878 398
+          | Россия, Липецкая обл., г. Усмань
         p
           i.fa.fa-envelope
           | E-mail : bigrussianboss@mail.ru
@@ -50,17 +47,14 @@ footer
           li
             = link_to 'Главная страница', root_path
           li
+            = link_to 'Статьи', posts_path
+          li
             = link_to 'Изображения', images_path
           li
-            a href="#"  Terms & Conditions
+            = link_to 'Контакты', contact_path
           li
-            a href="#"  Client Gateway
-          li
-            a href="#"  Ranking
-          li
-            a href="#"  Case Studies
-          li
-            a href="#"  Frequently Ask Questions
+            = link_to 'Обо Мне', about_path
+
       .col-md-3.col-sm-6.paddingtop-bottom
         h6.heading7
           | Последние статьи
@@ -72,8 +66,10 @@ footer
       .col-md-3.col-sm-6.paddingtop-bottom
         .fb-page data-adapt-container-width="true" data-height="300" data-hide-cover="false" data-href="https://www.facebook.com/facebook" data-show-facepile="true" data-small-header="false" data-tabs="timeline" style="margin-bottom:15px;"
           .fb-xfbml-parse-ignore
-            blockquote cite="https://www.facebook.com/facebook"
-              a href="https://www.facebook.com/facebook"  Facebook
+            blockquote cite="https://www.google.com"
+              = link_to 'Google', 'https://www.google.com', target: '_blank'
+            blockquote cite="https://www.yandex.com"
+              = link_to 'Яндекс', 'https://www.yandex.ru', target: '_blank'
 
 .copyright
   .container

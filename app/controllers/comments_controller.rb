@@ -1,12 +1,19 @@
 class CommentsController < ApplicationController
-  # def index
-  # end
-
   def create
     @comment = Post.find(params[:post_id]).comments.build(comment_params)
 
     if @comment.save
-      render json: @comment
+      render json: @comment.as_json(include: { user: { only: [:id, :name, :email] }})
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update(comment_params)
+      render json: @comment.as_json(include: { user: { only: [:id, :name, :email] }})
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

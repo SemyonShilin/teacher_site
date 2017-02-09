@@ -22,7 +22,7 @@ h1 Управление пользователями
         - @users.each do |user|
           tr
             td = user.id
-            td = user&.name
+            td = user&.name || user&.email
             td = user&.confirmed_at? ? t('.confirmed', date: l(user&.confirmed_at, format: :date)) : t('.not_confirmed')
             td = user&.last_sign_in_at
             td = t("#{ user.banned? }")
