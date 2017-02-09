@@ -29,8 +29,7 @@
           'Комментарии'
         if @state.comments.length
           for comment in @state.comments
-            React.createElement Comment, key: comment.id, comment: comment, current_user: @state.user_id,
-              handleDeleteComment: @deleteComment, handleEditComment: @updateComment
+            React.createElement Comment, key: comment.id, comment: comment, current_user: @state.user_id, handleDeleteComment: @deleteComment, handleEditComment: @updateComment
         else
           React.DOM.div
             className: 'alert alert-success'
