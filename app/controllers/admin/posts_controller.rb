@@ -1,7 +1,7 @@
 class Admin::PostsController < Admin::ApplicationController
-  add_breadcrumb 'Главная страница', :admin_dashboard_path
-  add_breadcrumb 'Посты', :admin_posts_path
-
+  add_breadcrumb :root, 'admin_dashboard_path'
+  add_breadcrumb :content, ''
+  add_breadcrumb :posts, "admin_#{controller_name}_path"
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -9,13 +9,21 @@ class Admin::PostsController < Admin::ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     add_breadcrumb @post.id, send("admin_#{controller_name.singularize}_path", @post.id)
   end
 
   def new
-    add_breadcrumb 'Новый Пост', :new_admin_post_path
+    add_breadcrumb :new, :new_admin_post_path
 
     @post = AdminUser.current.posts.build
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+
+    add_breadcrumb @post.id, send("admin_#{controller_name.singularize}_path", @post.id)
+    add_breadcrumb :edit, send("edit_admin_#{controller_name.singularize}_path", @post.id)
   end
 
   def create
@@ -28,11 +36,6 @@ class Admin::PostsController < Admin::ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-
-    add_breadcrumb "Редактирование #{@post.id} поста", send("edit_admin_#{controller_name.singularize}_path", @post.id)
-  end
 
   def update
     @post = Post.find(params[:id])

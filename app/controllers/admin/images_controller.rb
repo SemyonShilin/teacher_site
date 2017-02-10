@@ -1,6 +1,9 @@
 class Admin::ImagesController < Admin::ApplicationController
-  add_breadcrumb 'Главная страница', :admin_dashboard_path
-  add_breadcrumb 'Изображения', :admin_images_path
+  add_breadcrumb :root, :admin_dashboard_path
+  add_breadcrumb :content, ''
+  add_breadcrumb :images, "admin_#{controller_name}_path"
+  # add_breadcrumb :root, 'admin_dashboard_path'
+  # add_breadcrumb :posts, "admin_#{controller_name}_path"
 
   def index
     @images = Image.all.order(created_at: :desc)
@@ -13,7 +16,7 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def new
-    add_breadcrumb 'Новое Изображение', :new_admin_image_path
+    add_breadcrumb :new, :new_admin_image_path
 
     @image = Image.new
   end
@@ -31,7 +34,7 @@ class Admin::ImagesController < Admin::ApplicationController
   def edit
     @image = Image.find(params[:id])
 
-    add_breadcrumb "Редактирование #{@image.id} поста", send("edit_admin_#{controller_name.singularize}_path", @image.id)
+    add_breadcrumb :edit, send("edit_admin_#{controller_name.singularize}_path", @image.id)
   end
 
   def update

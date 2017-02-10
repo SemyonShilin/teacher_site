@@ -44,6 +44,7 @@ group :development do
 
   gem 'capistrano', '~> 3.7.0'
   gem 'capistrano-docker', github: 'netguru/capistrano-docker'
+  # gem 'capistrano-rails'
 end
 
 gem 'pg'
@@ -73,6 +74,9 @@ gem 'chartkick'
 gem 'non-stupid-digest-assets'
 #gem 'font-awesome-sass'
 gem 'breadcrumbs_on_rails'
+gem 'bootstrap-sass-extras'
 
 gem 'react-rails'
 # gem 'momentjs-rails'
+
+# gem 'kaminari'

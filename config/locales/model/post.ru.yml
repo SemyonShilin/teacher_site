@@ -8,3 +8,11 @@ ru:
         title: Заголовок
         content: Содежимое Поста
         images: Изображения
+  breadcrumbs:
+    admin:
+      posts:
+        new: Создание статьи
+        edit: Редактирование статьи
+        root: Главная страница
+        posts: Статьи
+        content: Управление контентом

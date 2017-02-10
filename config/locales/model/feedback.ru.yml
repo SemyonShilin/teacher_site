@@ -12,3 +12,8 @@ ru:
       status:
         feed_new: Новое сообщение
         replied: Отвеченно
+  breadcrumbs:
+    admin:
+      feedbacks:
+        root: Главная страница
+        feedbacks: Пользователи

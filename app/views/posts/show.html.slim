@@ -15,7 +15,7 @@
                 p.post = t('.posted', date: l(@post.updated_at, format: :long))
               .blog_data
                 p
-                  = image_tag(@post.images.first.photo.thumb.url, class:'image_back1 leftimg')
+                  = image_tag(@post.images.first.photo.thumb.url, class:'image_back1 leftimg')  if @post.images.present?
                   = @post.content.html_safe
                 .row
                   .col-md-12

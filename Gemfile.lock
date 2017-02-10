@@ -77,6 +77,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-sass-extras (0.0.7)
+      rails (>= 3.1.0)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.2)
     byebug (9.0.6)
@@ -282,6 +284,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bootstrap-sass-extras
   breadcrumbs_on_rails
   byebug
   cancancan

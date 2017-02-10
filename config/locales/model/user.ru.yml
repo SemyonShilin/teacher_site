@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      user: Пост
+      users: Посты
+    attributes:
+      user:
+
+  breadcrumbs:
+    admin:
+      users:
+        root: Главная страница
+        users: Пользователи

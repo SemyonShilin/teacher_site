@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      image: Пост
+      images: Посты
+    attributes:
+      image:
+
+  breadcrumbs:
+    admin:
+      images:
+        new: Создание изображения
+        edit: Редактирование изображения
+        root: Главная страница
+        images: Изображения
+        content: Управление контентом

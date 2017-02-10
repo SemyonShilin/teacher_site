@@ -1,4 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
+  add_breadcrumb :root, 'admin_dashboard_path'
+  add_breadcrumb :users, ''
+
   def index
     @users = User.order(created_at: :desc)
   end

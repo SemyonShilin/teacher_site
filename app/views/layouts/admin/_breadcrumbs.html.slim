@@ -1,3 +1,7 @@
-- if admin_user_signed_in? && breadcrumbs.any?
-  ol.breadcrumb
-    = render_breadcrumbs tag: :li, separator: ''
+/- if admin_user_signed_in? && breadcrumbs.any?
+/  ol.breadcrumb
+/    = render_breadcrumbs tag: :li, separator: ''
+.row
+  .col-md-12
+    - if admin_user_signed_in? && breadcrumbs.any?
+      = render_breadcrumbs tag: :li, separator: ''
