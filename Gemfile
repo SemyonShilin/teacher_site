@@ -80,3 +80,5 @@ gem 'react-rails'
 # gem 'momentjs-rails'
 
 # gem 'kaminari'
+
+# gem 'sidekiq'

@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     email = feedback&.user&.email || feedback.user_email
     @body = feedback.admin_message
 
-    mail(:to => email, :subject => feedback.subject) do |format|
+    mail(:to => email, :subject => feedback.subject, from: AdminUser.first) do |format|
       format.html { render 'template' }
     end
   end
