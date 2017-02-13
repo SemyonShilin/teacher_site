@@ -7,7 +7,7 @@
     name = e.target.name
     @setState "#{ name }": e.target.value
   valid: ->
-    @state.body
+    @state.body && !@props.current_user_ban
   handleSubmit: (e) ->
     e.preventDefault()
     $.post "/posts/#{@state.post_id}/comments", { comment: @state }, (data) =>
@@ -20,6 +20,10 @@
         className: 'alert alert-info'
         'Чтобы оставить свой комментарий, пожалуйста, '
         React.createElement('a', { href: '/profile/register', style: {textDecoration: 'underline'} }, 'зарегистрируйтесь!')
+    else if @props.current_user_ban
+      React.DOM.div
+        className: 'alert alert-danger'
+        'Вы забанены и не можите оставлять комментарии!'
     else
       React.DOM.form
         id: 'commentform'

@@ -36,5 +36,9 @@ h1 Сообщения обратной связи
                     = link_to 'Просмотр', [:admin, feedback], remote: true
                   li
                     = link_to 'Редактировать', [:edit, :admin, feedback]
+        - if @feedbacks.empty?
+          tr.text-center
+            td colspan='30'
+              = t('.no_feedbacks')
 
 =render 'show'

@@ -35,6 +35,10 @@ h1 Управление пользователями
                   li
                     = link_to 'Просмотр', [:admin, user]
                   li
-                    = link_to 'Бан', [:ban, :admin, user], method: :put
+                    = link_to user.banned? ? t('.unban') : t('.ban'), [:ban, :admin, user], method: :put
                   li
                     = link_to 'Удалить', [:admin, user], method: :delete
+        - if @users.empty?
+          tr.text-center
+            td colspan='30'
+              = t('.no_users')

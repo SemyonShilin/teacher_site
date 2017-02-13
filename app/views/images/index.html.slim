@@ -11,4 +11,8 @@
                 = link_to image.photo.thumb.url, class: 'fancybox', data: {'fancybox-group'=>'gallery'} do
                   = image_tag image.photo.url, class: 'img-style row6'
                   span
+        - if @images.empty?
+          .alert.alert-info
+            = t('.no_images')
 
+        = paginate @images

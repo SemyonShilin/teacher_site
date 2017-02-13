@@ -3,3 +3,4 @@ ru:
     feedbacks:
       index:
         sended: Отправлено %{date}
+        no_feedbacks: Нет ни одного сообщения!

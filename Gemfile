@@ -79,6 +79,5 @@ gem 'bootstrap-sass-extras'
 gem 'react-rails'
 # gem 'momentjs-rails'
 
-# gem 'kaminari'
-
-# gem 'sidekiq'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'

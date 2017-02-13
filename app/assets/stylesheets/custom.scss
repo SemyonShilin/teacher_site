@@ -20,6 +20,10 @@ nav li a {
   white-space: pre;
 }
 
+.pagination>li>a, .pagination>li>span {
+  border-radius: 50% !important;
+  margin: 0 5px;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 

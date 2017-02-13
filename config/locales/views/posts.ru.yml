@@ -4,6 +4,8 @@ ru:
       title: Статьи
       read_more: Читать дальше
       posted: Опубликовано %{date}
+      no_comments: Пока не было оставлено ни одного комментария!
+      no_posts: Нет ни одного поста!
     show:
       posted: Опубликовано %{date}
       title: Блог

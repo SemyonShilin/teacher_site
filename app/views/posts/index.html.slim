@@ -22,4 +22,23 @@
                     = link_to t('.read_more'), [post], class: 'btn btn-1 btn-1d'
               .clearfix
             .clearfix
+        - if @posts.empty?
+          .alert.alert-info
+            = t('.no_posts')
+
+        = paginate @posts
+
+      .rsidebar.span_1_of_3
+        .latest_comments
+          h3 Последние комментарии
+          /- if @comments.present?
+          - @last_comments.each do |comment|
+            .comments
+              p
+                |#{comment&.user&.name || comment&.user&.email} прокомментировал
+              h4 = link_to comment.post.title, [comment.post]
+              p = l(comment.created_at, format: :date)
+          - if @last_comments.empty?
+            .alert.alert-info
+              = t('.no_comments')
 

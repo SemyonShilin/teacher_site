@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(7)
+    @last_comments = Comment.all.order(created_at: :desc).first(3)
   end
 
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.order(created_at: :desc)
-                  .as_json(include: { user: { only: [:id, :name, :email] }})
+                  .as_json(include: { user: { only: [:id, :name, :email, ] }})
 
     respond_to do |format|
       format.html

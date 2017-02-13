@@ -3,6 +3,7 @@ class StaticpagesController < ApplicationController
   end
 
   def contact
+    @feedback = Feedback.new
   end
 
   def home

@@ -2,7 +2,8 @@
   getInitialState: ->
     comments: @props.data.comments
     post_id: @props.data.post_id
-    user_id: @props.data.current_user
+    user_id: @props.data.current_user.id
+    current_user_ban: @props.data.current_user.banned
   getDefaultProps: ->
     comments: []
   addComment: (comment) ->
@@ -22,7 +23,7 @@
         className: 'leave'
         React.DOM.h4 null,
           'Оставить комментарий'
-      React.createElement CommentForm, handleNewComment: @addComment, post_id: @state.post_id, user_id: @state.user_id
+      React.createElement CommentForm, handleNewComment: @addComment, post_id: @state.post_id, user_id: @state.user_id, current_user_ban: @state.current_user_ban
       React.DOM.div
         className: 'comments1'
         React.DOM.h4 null,
