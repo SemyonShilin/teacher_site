@@ -1,0 +1,18 @@
+/form#custom-search-form.form-search.form-horizontal.pull-right
+/  input.search-query.mac-style placeholder="Search" type="text" /
+/  button.btn type="submit"
+/    i.icon-search
+
+/= simple_form_for :search, url: [:admin, controller_name], method: :get, html: { class: 'navbar-form' } do |f|
+/  /span style="display: inline;"
+/
+/  = f.input :q, class: 'search-query mac-style', placeholder: 'Search', label: false, wrapper: false, disabled: (true if controller_name == 'dashboard'), id: 'templatemo_search_box'
+/  = button_tag '', type: 'submit', class: 'btn' do
+/    i.glyphicon.glyphicon-search
+
+= simple_form_for :search, url: [:admin, controller_name], method: :get, html: { class: 'form-inline' } do |f|
+  = f.input :q, placeholder: 'Search', label: false, wrapper: false, disabled: (true if controller_name == 'dashboard'), id: 'search-bar'
+  .text-right
+    = button_tag '', type: 'submit', class: 'btn text', id: 'search-btn' do
+      i.glyphicon.glyphicon-search
+

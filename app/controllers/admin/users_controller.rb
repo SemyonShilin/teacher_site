@@ -3,7 +3,11 @@ class Admin::UsersController < Admin::ApplicationController
   add_breadcrumb :users, ''
 
   def index
-    @users = User.order(created_at: :desc)
+    @users = if params[:search]
+               User.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
+             else
+               User.order(created_at: :desc)
+             end
   end
 
   def ban

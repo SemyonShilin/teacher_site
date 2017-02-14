@@ -3,6 +3,14 @@ class Post < ApplicationRecord
   has_many :images
   has_many :comments
 
+  searchkick# callbacks: :async
+
+  def search_data
+    {
+      title: title
+    }
+  end
+
 
   # translates :title, :content
   # globalize_accessors locales: [:ru, :en], attributes: [:title, :content]

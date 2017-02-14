@@ -29,7 +29,11 @@ class Admin::FeedbacksController < Admin::ApplicationController
   end
 
   def index
-    @feedbacks = Feedback.all.order(:status, created_at: :desc)
+    @feedbacks = if params[:search]
+                   Feedback.order(:status, created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
+                 else
+                   Feedback.order(:status, created_at: :desc)
+                 end
   end
 
   def show

@@ -50,10 +50,11 @@
     #accordion.panel-group
       .panel.panel-default
         .panel-heading
-          h4.panel-title
-            a
-              span.glyphicon.glyphicon-search
-              | Тут поиск
+          /h4.panel-title
+          = render 'layouts/admin/search'
+            /a
+            /  span.glyphicon.glyphicon-search
+            /  | Тут поиск
       .panel.panel-default
         .panel-heading
           h4.panel-title

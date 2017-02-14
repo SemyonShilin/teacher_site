@@ -6,7 +6,11 @@ class Admin::ImagesController < Admin::ApplicationController
   # add_breadcrumb :posts, "admin_#{controller_name}_path"
 
   def index
-    @images = Image.all.order(created_at: :desc)
+    @images = if params[:search]
+                Image.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
+              else
+                Image.order(created_at: :desc)
+              end
   end
 
   def show

@@ -81,3 +81,6 @@ gem 'react-rails'
 
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+
+gem 'searchkick'
+# gem 'sidekiq'

@@ -4,7 +4,11 @@ class Admin::PostsController < Admin::ApplicationController
   add_breadcrumb :posts, "admin_#{controller_name}_path"
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = if params[:search]
+               Post.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
+             else
+               Post.order(created_at: :desc)
+             end
   end
 
   def show
