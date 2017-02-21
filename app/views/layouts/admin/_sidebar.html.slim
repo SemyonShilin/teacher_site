@@ -48,8 +48,9 @@
 - if admin_user_signed_in?
   .col-sm-2.col-md-2.navbar-collapse.collapse.templatemo-sidebar
     #accordion.panel-group
-      .panel.panel-default
+      .panel.panel-default style=('display:none;' if controller_name == 'dashboard')
         .panel-heading
+
           /h4.panel-title
           = render 'layouts/admin/search'
             /a
@@ -74,7 +75,7 @@
               tr
                 td
                   span.glyphicon.glyphicon-pencil.text-primary
-                  = link_to 'Посты', admin_posts_path
+                  = link_to 'Статьи', admin_posts_path
               tr
                 td
                   span.glyphicon.glyphicon-flash.text-success
@@ -89,7 +90,7 @@
         .panel-heading
           h4.panel-title
             = link_to [:admin, :feedbacks] do
-              span.glyphicon.glyphicon-home
+              span.glyphicon.glyphicon-envelope
               span.badge.pull-right
                 = amount_new_feedbacks
               | Сообщения
@@ -97,7 +98,7 @@
         .panel-heading
           h4.panel-title
             = link_to [:admin, :users] do
-              span.glyphicon.glyphicon-home
+              span.glyphicon.glyphicon-user
               span.badge.pull-right
                 = amount_new_users
               | Пользователи

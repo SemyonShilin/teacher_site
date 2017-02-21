@@ -1,0 +1,6 @@
+ru:
+  layouts:
+    admin:
+      header:
+        dashboard: Панель анминистратора
+

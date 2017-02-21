@@ -1,0 +1,4 @@
+= simple_form_for [:admin, @image] do |f|
+  .text-left
+    = f.input :post_id, collection: post_list_without_image, include_blank: 'Не выбрано', label: 'Статья'
+  = f.button :submit, 'Добавить к статье', class: 'pull-right btn btn-success btn-sm'

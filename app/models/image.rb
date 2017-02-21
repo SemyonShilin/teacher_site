@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-  belongs_to :post
+  belongs_to :post, inverse_of: :image
 
   mount_uploader :photo, ImageUploader
 

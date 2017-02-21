@@ -1,0 +1,15 @@
+.row
+  .col-md-6
+    .pull-left
+      = button_tag(type: 'button', class: 'btn btn-sm btn-success show-block') do
+        = content_tag(:strong, 'Прикрепить фото к статье')
+  .col-md-6
+    .pull-right
+      = link_to [:admin, @image], method: :delete,
+              class: 'btn btn-sm btn-danger', id: 'delete-image',
+              data: { confirm: 'Вы уверены, что хотите удалить фото?' } do
+                = content_tag(:strong, 'Удалить')
+
+.row#hide-block style="display:none;"
+  .col-md-12
+    = render 'form_for_post'

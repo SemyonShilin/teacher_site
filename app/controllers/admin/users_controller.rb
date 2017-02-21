@@ -10,6 +10,10 @@ class Admin::UsersController < Admin::ApplicationController
              end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def ban
     @user = User.find(params[:id]).toggle :banned
     redirect_to action: :index if @user.save

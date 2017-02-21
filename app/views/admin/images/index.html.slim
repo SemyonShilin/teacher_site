@@ -14,7 +14,7 @@
   .col-md-12
     ul.nav.nav-pills
       li
-        = link_to 'Добавить изображение', new_admin_image_path, class: 'btn btn-default'
+        = link_to 'Добавить изображение', new_admin_image_path, class: 'btn btn-default btn-sm'
 
 - @images.each_slice(2).each do |group|
   .row
@@ -24,7 +24,11 @@
           .panel-heading
             h4.panel-title.text-center
               = image.photo_identifier
-          .panel-body
+          .panel-body.img
+            .close
             /style=( "background-image: url(#{image.photo.url});")
-            p.text-center = image_tag image.photo.thumb.url
-          .panel-footer
+            p.text-center = link_to image_tag(image.photo.thumb.url), [:admin, image], remote: true
+
+= paginate @images
+
+= render 'show'

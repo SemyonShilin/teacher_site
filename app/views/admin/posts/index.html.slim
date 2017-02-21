@@ -3,12 +3,13 @@ h1 Управление постами
   .col-md-12
     ul.nav.nav-pills
       li
-        = link_to new_admin_post_path do
-          | Новый Пост
-      li
-        a href="#"
+        a.btn.btn-default.btn-sm href="#"
           | Всего Постов
           span.badge = @posts.count
+      li
+        = link_to new_admin_post_path, class: 'btn btn-default btn-sm' do
+          | Новый Пост
+
 .row.margin-bottom-30
   .col-md-12
     h4.margin-bottom-15 Таблица всех записей
@@ -26,7 +27,7 @@ h1 Управление постами
             td = post.title.truncate_words(10)
             td =  t('.posted', date: l(post.updated_at, format: :date))
             td
-              .btn-group
+              .btn-group.pull-right
                 button.btn.btn-info.dropdown-toggle data-toggle="dropdown" type="button"
                   | Действия
                   span.caret

@@ -1,13 +1,22 @@
 class Post < ApplicationRecord
   belongs_to :admin_user
-  has_many :images
-  has_many :comments
+  has_one :image, dependent: :nullify, inverse_of: :post
+  has_many :comments, dependent: :destroy
 
-  searchkick# callbacks: :async
+  accepts_nested_attributes_for :image
+
+  searchkick merge_mappings: true, mappings: { # callbacks: :async
+    post: {
+      properties: {
+        content: { type: 'text' }
+      }
+    }
+  }
 
   def search_data
     {
-      title: title
+      title: title,
+      content: content&.html_safe
     }
   end
 

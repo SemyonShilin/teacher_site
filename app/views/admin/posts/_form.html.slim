@@ -3,9 +3,22 @@
   = f.cktext_area :content, as: :ckeditor
   /, ckeditor: { toolbar: 'MyToolbar' }
 
-  = f.association :images, collection: image_list,
-    value_method: :id,
-    label_method: 'photo_identifier'
+  /= f.association :image, collection: image_list,
+  /  value_method: :id,
+  /  label_method: 'photo_identifier'
+  /= f.input :image, collection: image_list,
+  /        value_method: :id,
+  /        label_method: 'photo_identifier'
+
+  /= f.simple_fields_for @post.build_image do |p|
+  /  = p.input :id, collection: image_list,
+  /    value_method: 'id',
+  /    label_method: 'photo_identifier'
+
+  /= f.association :images, collection: image_list,
+  /      value_method: :id,
+  /      label_method: 'photo_identifier',
+  /        :input_html => { :value => default: f.object.images.first
 
   = f.file_field :file, required: true
 

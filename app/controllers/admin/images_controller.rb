@@ -1,4 +1,6 @@
 class Admin::ImagesController < Admin::ApplicationController
+  respond_to :html, :json, :js
+
   add_breadcrumb :root, :admin_dashboard_path
   add_breadcrumb :content, ''
   add_breadcrumb :images, "admin_#{controller_name}_path"
@@ -7,16 +9,16 @@ class Admin::ImagesController < Admin::ApplicationController
 
   def index
     @images = if params[:search]
-                Image.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
+                Image.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 8)
               else
-                Image.order(created_at: :desc)
+                Image.order(created_at: :desc).page(params[:page]).per(8)
               end
   end
 
   def show
     @image = Image.find(params[:id])
-
-    add_breadcrumb @image.id, send("admin_#{controller_name.singularize}_path", @image.id)
+    respond_with @image
+    # add_breadcrumb @image.id, send("admin_#{controller_name.singularize}_path", @image.id)
   end
 
   def new
@@ -26,13 +28,14 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = Image.new(image_params).save
+    respond_with :admin, @image, status: :created, location: admin_images_path
 
-    if @image.save
-      redirect_to admin_images_path, notice: 'Успешно добавлена'
-    else
-      render 'new'
-    end
+    # if @image.save
+    #   redirect_to admin_images_path, notice: 'Успешно добавлена'
+    # else
+    #   render 'new'
+    # end
   end
 
   def edit
@@ -42,13 +45,15 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def update
-    @image = Image.find(params[:id])
+    @image = Image.find(params[:id]).update(image_params)
 
-    if @image.update(image_params)
-      redirect_to admin_images_path, notice: 'Успешно обновлен'
-    else
-      render 'edit'
-    end
+    respond_with :admin, @image, status: :updated, location: admin_images_path
+
+    # if @image.update(image_params)
+    #   redirect_to admin_images_path, notice: 'Успешно обновлен'
+    # else
+    #   render 'edit'
+    # end
   end
 
   def destroy
@@ -60,6 +65,6 @@ class Admin::ImagesController < Admin::ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:photo)
+    params.require(:image).permit(:photo, :post_id)
   end
 end

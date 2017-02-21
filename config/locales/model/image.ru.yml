@@ -1,10 +1,10 @@
 ru:
   activerecord:
     models:
-      image: Пост
-      images: Посты
+      image: Изображение
+      images: Изображения
     attributes:
-      image:
+      post: Статья
 
   breadcrumbs:
     admin:
