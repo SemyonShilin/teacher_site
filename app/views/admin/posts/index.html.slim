@@ -24,7 +24,7 @@ h1 Управление постами
         - @posts.each do |post|
           tr
             td = post.id
-            td = post.title.truncate_words(10)
+            td = link_to post.title.truncate_words(10), [:admin, post]
             td =  t('.posted', date: l(post.updated_at, format: :date))
             td
               .btn-group.pull-right
@@ -38,3 +38,5 @@ h1 Управление постами
                     = link_to 'Редактировать', [:edit, :admin, post]
                   li
                     = link_to 'Удалить', [:admin, post], method: :delete
+
+= paginate @posts

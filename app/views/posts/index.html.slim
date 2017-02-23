@@ -8,8 +8,11 @@
           .blog_posts
             .section.group.example
               .col.blog_1_of_2
-                .blog_img
-                  = link_to image_tag(post.image.photo.thumb.url), post_path(post)
+                .blog_img.text-center
+                  - if post.image.present?
+                    = link_to image_tag(post.image.photo.thumb.url), post_path(post)
+                  - else
+                    = image_tag '123.png'
                   /.image_back style=( "background-image: url(#{post.images.first.photo.thumb.url});")
               .col.blogdata_1_of_2
                 .blog_heading

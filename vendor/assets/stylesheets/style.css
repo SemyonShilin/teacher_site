@@ -722,9 +722,9 @@ p.post {
 	line-height: 1.9em;
 	font-weight: 300;
 }
-.blog_img img {
-	width: 100%;
-}
+/*.blog_img img {*/
+	/*width: 100%;*/
+/*}*/
 .more span a{
 	padding:8px 10px;
 	border-radius:3px;

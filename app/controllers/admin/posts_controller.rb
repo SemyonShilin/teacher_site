@@ -7,7 +7,7 @@ class Admin::PostsController < Admin::ApplicationController
     @posts = if params[:search]
                Post.order(created_at: :desc).search(params[:search][:q], page: params[:page], per_page: 7)
              else
-               Post.order(created_at: :desc)
+               Post.order(created_at: :desc).page(params[:page]).per(7)
              end
   end
 

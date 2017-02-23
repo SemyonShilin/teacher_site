@@ -15,7 +15,11 @@
                 p.post = t('.posted', date: l(@post.updated_at, format: :long))
               .blog_data
                 p
-                  = image_tag(@post.image.photo.thumb.url, class:'image_back1 leftimg') unless @post.content.scan(/<img>/)
+                  - if @post.image.present?
+                    = image_tag(@post.image.photo.thumb.url, class:'image_back1 leftimg')
+                    /unless @post.content.scan(/<img>/)
+                  - else
+                    = image_tag '123.png'
                   = @post.content.html_safe
                 .row
                   .col-md-12

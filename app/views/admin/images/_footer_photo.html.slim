@@ -12,4 +12,8 @@
 
 .row#hide-block style="display:none;"
   .col-md-12
-    = render 'form_for_post'
+    - if @image.post.present?
+      .alert.alert-dismissible.alert-danger role="alert"
+        p.text-center Это изображение уже прикреплено к статье #{link_to @image.post.title, [:admin, @image.post]}.
+    - else
+      = render 'form_for_post'
