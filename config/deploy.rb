@@ -27,3 +27,7 @@
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+# set :application, 'teacher_site'
+# set :repo_url, 'git@github.com:ShilinSemyon/teacher_site.git'
+# set :deploy_to, "/home/suser/#{fetch(:application)}"

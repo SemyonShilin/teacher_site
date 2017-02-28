@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'staticpages#home'
 
-  devise_for :users, path: 'profile', path_names: { sign_up: 'register' },
-             controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, path: 'profile', path_names: { sign_up: 'register', sign_in: 'login', sign_out: 'logout' },
+             controllers: { sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords',
+             confirmations: 'users/confirmations', unlocks: 'users/unlocks'}
 
   devise_for :admin_users, path: 'admin', path_names: { sign_in: 'login' },
              controllers: { sessions: 'admin_users/sessions' }

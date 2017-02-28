@@ -1,0 +1,17 @@
+.row
+  .col-sm-6.col-sm-offset-3
+    .panel
+      .panel-body
+        h2.margin-bottom-20.text-center= t('devise.passwords.new.forgot_your_password')
+        = simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal', role: 'form' } do |f|
+          .row
+            .col-md-12.text-left.alert.alert-warning
+              p= t('devise.passwords.new.reset_hint')
+          .row
+            .col-md-12
+              = f.input :email, placeholder: t('activerecord.attributes.user.email'), required: false, autofocus: true
+          .row
+            .col-md-12.text-right.no-padding
+              = f.button :submit, t('devise.passwords.new.submit'), class: 'btn btn-default'
+
+            = render 'users/shared/links'

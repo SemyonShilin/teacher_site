@@ -8,6 +8,7 @@ ru:
         subject: Заголовок
         body: Содежимое
         admin_message: Содержимое ответа
+        user_email: Email
     enum:
       status:
         feed_new: Новое сообщение

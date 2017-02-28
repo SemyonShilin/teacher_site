@@ -1,0 +1,18 @@
+.row
+  .col-sm-6.col-sm-offset-3
+    .panel
+      .panel-body
+        h2.margin-bottom-20= t('devise.unlocks.new.resend_unlock_instructions')
+        = simple_form_for resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: 'form-horizontal', role: 'form' } do |f|
+          .row
+            .col-md-12
+              = f.error_notification
+          .row
+            .col-md-12
+              =  f.input :email, required: true, autofocus: true, placeholder: t('activerecord.attributes.user.email')
+
+          .row
+            .col-md-12.text-right.no-padding
+              = f.button :submit, t('devise.unlocks.new.resend_unlock_instructions'), class: 'btn btn-default'
+
+            = render 'users/shared/links'
