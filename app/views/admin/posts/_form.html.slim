@@ -1,6 +1,7 @@
 = simple_form_for [:admin, @post] do |f|
   = f.input :title
-  = f.cktext_area :content, as: :ckeditor
+  .margin-bottom-30
+    = f.cktext_area :content, as: :ckeditor
   /, ckeditor: { toolbar: 'MyToolbar' }
 
   /= f.association :image, collection: image_list,
@@ -19,8 +20,7 @@
   /      value_method: :id,
   /      label_method: 'photo_identifier',
   /        :input_html => { :value => default: f.object.images.first
-
-  = f.file_field :file, required: true
+  = f.input :file, required: true, wrapper: :horizontal_file_input
 
   .row
     .col-md-12.form-group.text-right
