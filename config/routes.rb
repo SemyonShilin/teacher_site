@@ -23,7 +23,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
 
-    resources :posts
+    resources :posts do
+      member do
+        post :publish
+        post :unpublish
+      end
+    end
     resources :admin_users
     resources :images
     resources :users do

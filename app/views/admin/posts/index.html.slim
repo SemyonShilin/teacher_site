@@ -1,14 +1,14 @@
-h1 Управление постами
+h1 Управление Статьями
 .row.margin-bottom-30
   .col-md-12
     ul.nav.nav-pills
       li
         a.btn.btn-default.btn-sm href="#"
-          | Всего Постов
+          | Всего Статей
           span.badge = @posts.count
       li
         = link_to new_admin_post_path, class: 'btn btn-default btn-sm' do
-          | Новый Пост
+          | Новая Статья
 
 .row.margin-bottom-30
   .col-md-12
@@ -18,6 +18,7 @@ h1 Управление постами
         tr
           th №
           th Заголовок
+          th Статус
           th Время создания
           th.text-right Действия
       tbody
@@ -25,7 +26,9 @@ h1 Управление постами
           tr
             td = post.id
             td = link_to post.title.truncate_words(10), [:admin, post]
-            td =  t('.posted', date: l(post.updated_at, format: :date))
+            td = t(post.status, scope: 'posts.status')
+
+            td = t(".#{post.status}", date: l(select_date_at(post), format: :date))
             td
               .btn-group.pull-right
                 button.btn.btn-info.dropdown-toggle data-toggle="dropdown" type="button"
@@ -34,6 +37,11 @@ h1 Управление постами
                 ul.dropdown-menu role="menu"
                   li
                     = link_to 'Просмотр', [:admin, post]
+                  li
+                    - if post.published?
+                      = link_to 'Снять с публикации', [:unpublish, :admin, post], method: :post
+                    - elsif post.unpublished? || post.fresh?
+                      = link_to 'Опубликовать', [:publish, :admin, post], method: :post
                   li
                     = link_to 'Редактировать', [:edit, :admin, post]
                   li

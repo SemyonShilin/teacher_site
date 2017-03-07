@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(7)
+    @posts = Post.where(status: :published).order(created_at: :desc).page(params[:page]).per(7)
     @last_comments = Comment.all.order(created_at: :desc).first(3)
   end
 

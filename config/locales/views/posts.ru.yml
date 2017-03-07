@@ -5,14 +5,22 @@ ru:
       read_more: Читать дальше
       posted: Опубликовано %{date}
       no_comments: Пока не было оставлено ни одного комментария!
-      no_posts: Нет ни одного поста!
+      no_posts: Нет ни одной статьи!
     show:
       posted: Опубликовано %{date}
       title: Блог
       download: Скачать файл
+    status:
+      fresh: Новая
+      published: Опубликована
+      unpublished: Снята с публикации
+      edited: Отредактирована
   admin:
     posts:
       index:
-        posted: Опубликовано %{date}
+        published: Опубликована %{date}
+        fresh: Создана %{date}
+        unpublished: Снята с публикации %{date}
+        edited: Отредактирована %{date}
       show:
         download: Скачать файл

@@ -85,3 +85,5 @@ gem 'bootstrap-kaminari-views'
 
 gem 'searchkick'
 # gem 'sidekiq'
+
+gem 'aasm'

@@ -1,4 +1,6 @@
 class Admin::PostsController < Admin::ApplicationController
+  before_action :init_post, except: [:new, :create, :index]
+
   add_breadcrumb :root, 'admin_dashboard_path'
   add_breadcrumb :content, ''
   add_breadcrumb :posts, "admin_#{controller_name}_path"
@@ -12,8 +14,6 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-
     add_breadcrumb @post.id, send("admin_#{controller_name.singularize}_path", @post.id)
   end
 
@@ -21,47 +21,59 @@ class Admin::PostsController < Admin::ApplicationController
     add_breadcrumb :new, :new_admin_post_path
 
     @post = AdminUser.current.posts.build
-    # @image = @post.build_image
   end
 
   def edit
-    @post = Post.find(params[:id])
-    # @image = @post.build_image
-
     add_breadcrumb @post.id, send("admin_#{controller_name.singularize}_path", @post.id)
     add_breadcrumb :edit, send("edit_admin_#{controller_name.singularize}_path", @post.id)
   end
 
   def create
     @post = AdminUser.current.posts.build(post_params)
-    # respond_with @pos
+
     if @post.save
-      redirect_to admin_post_path(@post), notice: 'Успешно создан'
+      redirect_to admin_post_path(@post), notice: 'Успешно создана'
     else
       render 'new'
     end
   end
 
-
   def update
-    @post = Post.find(params[:id])
+    @post.edit
 
     if @post.update(post_params)
-      redirect_to admin_post_path(@post), notice: 'Успешно обновлен'
+      redirect_to admin_post_path(@post), notice: 'Успешно обновлена'
     else
       render 'edit'
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to admin_posts_path
   end
 
+  def publish
+    @post.publish
+    @post.save
+    flash[:notice] = 'Статья опубликована'
+    respond_with :admin, @post, location: [:admin, :posts]
+  end
+
+  def unpublish
+    @post.unpublish
+    @post.save
+    flash[:notice] = 'Статья снята с публикации'
+    respond_with :admin, @post, location: [:admin, :posts]
+  end
+
   private
 
+  def init_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
-    params.require(:post).permit(:id, :title, :content, :content, :admin_user, :file)#, image: [:id, :url, :photo]
+    params.require(:post).permit(:id, :title, :content, :content, :admin_user, :file)
   end
 end
