@@ -44,11 +44,11 @@
         React.DOM.p null, @props.comment.body
         React.DOM.div
           className: 'row'
-          React.DOM.div
-            className: 'col-md-4'
-            React.DOM.a
-              className: 'btn btn-xs'
-              'Ответить'
+#          React.DOM.div
+#            className: 'col-md-4'
+#            React.DOM.a
+#              className: 'btn btn-xs'
+#              'Ответить'
           if @props.comment.user_id is @state.current_user
             React.DOM.div
               className: 'col-md-8'

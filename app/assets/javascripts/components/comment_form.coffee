@@ -56,8 +56,8 @@
             className: 'form-control'
             name: 'user_id'
             value: @state.user_id
-#        React.DOM.button
-#          type: 'submit'
-#          className: 'btn btn-primary'
-#          disabled: !@valid()
-#          'Отправить'
+        React.DOM.button
+          type: 'submit'
+          className: 'btn btn-primary'
+          disabled: !@valid()
+          'Отправить'

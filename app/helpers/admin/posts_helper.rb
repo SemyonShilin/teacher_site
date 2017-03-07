@@ -1,8 +1,4 @@
 module Admin::PostsHelper
-  def image_list
-    Image.where(post_id: nil)
-  end
-
   def select_date_at(post)
     if post.fresh?
       post.created_at
