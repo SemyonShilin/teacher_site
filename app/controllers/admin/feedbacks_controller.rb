@@ -1,5 +1,5 @@
 class Admin::FeedbacksController < Admin::ApplicationController
-  # respond_to :html, :js
+  respond_to :html, :js
   add_breadcrumb :root, 'admin_dashboard_path'
   add_breadcrumb :feedbacks, ''
 
@@ -7,24 +7,21 @@ class Admin::FeedbacksController < Admin::ApplicationController
     @feedback = Feedback.find(params[:id])
     @feedback.assign_attributes(feedback_params.merge(admin_user: current_admin_user, status: 'replied'))
 
-    respond_to do |format|
-      if @feedback.save
-        UserMailer.feedback_reply(@feedback).deliver
-        format.html do
-          redirect_to admin_feedbacks_path, notice: 'Сообщение отправлено!' #t("feedback_succ")
-        end
-        format.js {}
-      else
-        format.html{ render }
-        format.js {}
-      end
-    end
+    @feedback.errors.add(:base, :invalid)
+    UserMailer.feedback_reply(@feedback).deliver if @feedback.save
+    respond_with @feedback, notice: 'Сообщение отправлено!'
 
-    # if @feedback.save
-    #   UserMailer.feedback_reply(@feedback).deliver
-    #   redirect_to admin_feedbacks_path, notice: 'Сообщение отправлено!' #t("feedback_succ")
-    # else
-    #   render
+    # respond_to do |format|
+    #   if @feedback.save
+    #     UserMailer.feedback_reply(@feedback).deliver
+    #     format.html do
+    #       redirect_to admin_feedbacks_path, notice: 'Сообщение отправлено!' #t("feedback_succ")
+    #     end
+    #     format.js {}
+    #   else
+    #     format.html{ render }
+    #     format.js {}
+    #   end
     # end
   end
 

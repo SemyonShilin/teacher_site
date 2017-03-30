@@ -9,20 +9,20 @@ class Post < ApplicationRecord
 
   mount_uploader :file, FileUploader
 
-  searchkick merge_mappings: true, mappings: { # callbacks: :async
-    post: {
-      properties: {
-        content: { type: 'text' }
-      }
-    }
-  }
-
-  def search_data
-    {
-      title: title,
-      content: content&.html_safe
-    }
-  end
+  # searchkick merge_mappings: true, mappings: { # callbacks: :async
+  #   post: {
+  #     properties: {
+  #       content: { type: 'text' }
+  #     }
+  #   }
+  # }
+  #
+  # def search_data
+  #   {
+  #     title: title,
+  #     content: content&.html_safe
+  #   }
+  # end
 
 
   # translates :title, :content

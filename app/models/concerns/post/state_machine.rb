@@ -9,7 +9,7 @@ module Post::StateMachine
       state :fresh, :edited, :published, :unpublished
 
       event :publish do
-        after do
+        after :notify_published_post do
           set_published_at
         end
         transitions from: [:fresh, :unpublished, :edited], to: :published
@@ -22,6 +22,10 @@ module Post::StateMachine
       event :unpublish do
         transitions from: :published, to: :unpublished
       end
+    end
+
+    def notify_published_post
+      UserMailer.notify_new_published_post(self).deliver
     end
 
     def set_published_at

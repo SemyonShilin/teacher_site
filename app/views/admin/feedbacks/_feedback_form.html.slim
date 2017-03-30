@@ -1,7 +1,7 @@
 = simple_form_for @feedback, url: reply_admin_feedback_path(@feedback), method: :post, remote: true do |f|
 
   = f.input :admin_message, as: :ckeditor
-  = f.submit 'Отправить', class: 'btn btn-layout btn-sm',
+  = f.submit 'Отправить', class: 'btn btn-success btn-sm',
           data: { confirm: 'Вы уверены, что хотите отправить это сообщение,',
                   commit: 'Да',
                   cancel: 'Отмена'}

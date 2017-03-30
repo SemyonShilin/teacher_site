@@ -3,11 +3,11 @@ class Image < ApplicationRecord
 
   mount_uploader :photo, ImageUploader
 
-  searchkick
-
-  def search_data
-    {
-      photo: photo_identifier
-    }
-  end
+  # searchkick
+  #
+  # def search_data
+  #   {
+  #     photo: photo_identifier
+  #   }
+  # end
 end

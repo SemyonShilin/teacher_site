@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :users do
       put :ban, on: :member
     end
-    resources :feedbacks, only: [:index, :show, :edit, :update] do
+    resources :feedbacks, only: [:index, :show, :update] do
       post :reply, on: :member
     end
   end

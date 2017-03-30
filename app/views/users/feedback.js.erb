@@ -1,5 +1,6 @@
 <% if @feedback.errors.any?  %>
   $('#feedback-form').html('<%=j render "feedback_form" %>');
 <% else %>
-  $('#feedback').append('<%= flash[:notice] %>');
+//  $('#feedback').append('<%= flash[:notice] %>');
+  $('#feedback').prepend('<%= j render 'layouts/admin/error_message' %>')
 <% end %>

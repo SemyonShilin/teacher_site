@@ -7,12 +7,12 @@ class User < ApplicationRecord
   has_many :feedbacks
   has_many :comments
 
-  searchkick
-
-  def search_data
-    {
-      name: name,
-      email: email
-    }
-  end
+  # searchkick
+  #
+  # def search_data
+  #   {
+  #     name: name,
+  #     email: email
+  #   }
+  # end
 end

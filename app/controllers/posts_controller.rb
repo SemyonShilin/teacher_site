@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.where(status: :published).order(created_at: :desc).page(params[:page]).per(7)
-    @last_comments = Comment.all.order(created_at: :desc).first(3)
+    @last_comments = Comment.joins(:post).where(posts: {status: :published}).order(created_at: :desc).limit(3)
   end
 
   def show

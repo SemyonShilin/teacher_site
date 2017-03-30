@@ -4,6 +4,10 @@ p= @feedback.subject
 h3= Feedback.human_attribute_name(:body)
 p= @feedback.body.html_safe
 
+- if @feedback.replied?
+  h3= Feedback.human_attribute_name(:admin_message)
+  p= @feedback.admin_message.html_safe
+
 div#hide-block style="display:none;"
   #for_ajax
     = render 'feedback_form'

@@ -23,4 +23,6 @@ class Feedback < ApplicationRecord
 
 
   # validates :email, if: 'current_user.blank?'
+  validates :body, presence: true
+  validates :admin_message, presence: true, if: -> { admin_user }
 end
