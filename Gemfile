@@ -47,10 +47,6 @@ group :development do
   # gem 'capistrano-rails'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
-
 gem 'pg'
 # gem 'rails_12factor', group: :production
 
@@ -67,7 +63,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'simple_form'
-gem 'slim-rails'
+gem 'slim-rails', '~> 3.0', '>= 3.0.1'
 
 gem 'globalize', github: 'globalize/globalize'
 gem 'globalize-accessors'
