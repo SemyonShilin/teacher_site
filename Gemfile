@@ -47,6 +47,10 @@ group :development do
   # gem 'capistrano-rails'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'pg'
 # gem 'rails_12factor', group: :production
 
