@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   # include Post::StateMachine
+  include AASM
 
   belongs_to :admin_user
   has_one :image, dependent: :nullify, inverse_of: :post
