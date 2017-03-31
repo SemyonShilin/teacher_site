@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  include Post::StateMachine
+  # include Post::StateMachine
 
   belongs_to :admin_user
   has_one :image, dependent: :nullify, inverse_of: :post
