@@ -29,7 +29,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
   def create
     @image = Image.new(image_params).save
-    respond_with :admin, @image, status: :created, location: admin_images_path
+    respond_with @image, status: :created, location: admin_images_path
 
     # if @image.save
     #   redirect_to admin_images_path, notice: 'Успешно добавлена'
