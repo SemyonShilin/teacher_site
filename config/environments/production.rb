@@ -110,4 +110,5 @@ Rails.application.configure do
 
   config.serve_static_assets = true
   config.assets.precompile += ['ckeditor/*']
+  config.autoload_paths += Dir[Rails.root.join('app', 'models', 'concerns', '**', '*.{rb}').to_s]
 end
