@@ -16,9 +16,9 @@ module TeacherSite
     config.i18n.available_locales = [:ru, :en]
     config.i18n.default_locale = :ru
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
-
-    config.autoload_paths += %W(#{Rails.root}/lib)
-    config.eager_load_paths << "#{Rails.root}/lib"
+    #
+    # config.autoload_paths += %W(#{Rails.root}/lib)
+    # config.eager_load_paths << "#{Rails.root}/lib"
     # config.assets.initialize_on_precompile = false
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # config.assets.precompile += Ckeditor.assets
