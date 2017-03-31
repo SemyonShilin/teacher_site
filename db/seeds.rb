@@ -19,7 +19,7 @@ end
 ActiveRecord::Base.transaction do
   AdminUser.destroy_all
 
-  AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin_roles: [AdminRole.find_by_name('admin')])
+  AdminUser.create(email: ENV['GMAIL_USERNAME'], password: ENV['GMAIL_PASSWORD'], password_confirmation: 'password', admin_roles: [AdminRole.find_by_name('admin')])
 
   puts "admin user: (#{ AdminUser.count })"
 end
