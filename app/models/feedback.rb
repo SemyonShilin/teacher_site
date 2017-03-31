@@ -11,15 +11,15 @@ class Feedback < ApplicationRecord
     replied: 'replied'
   }
 
-  searchkick# callbacks: :async
-
-  def search_data
-    {
-      email: user&.email,
-      user_email: user_email,
-      status: I18n.t(status, scope: 'activerecord.enum.status', locale: :ru)
-    }
-  end
+  # searchkick# callbacks: :async
+  #
+  # def search_data
+  #   {
+  #     email: user&.email,
+  #     user_email: user_email,
+  #     status: I18n.t(status, scope: 'activerecord.enum.status', locale: :ru)
+  #   }
+  # end
 
 
   # validates :email, if: 'current_user.blank?'

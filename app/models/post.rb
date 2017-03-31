@@ -20,7 +20,8 @@ class Post < ApplicationRecord
   # def search_data
   #   {
   #     title: title,
-  #     content: content&.html_safe
+  #     content: content&.html_safe,
+  #     status: I18n.t(status, scope: 'posts.status')
   #   }
   # end
 

@@ -24,7 +24,7 @@ h1 Управление пользователями
             td = user.id
             td = user&.name || user&.email
             td = user&.confirmed_at? ? t('.confirmed', date: l(user&.confirmed_at, format: :date)) : t('.not_confirmed')
-            td = user&.last_sign_in_at
+            td = l(user&.last_sign_in_at, format: :long)
             td = t("#{ user.banned? }")
             td
               .btn-group.pull-right
